@@ -5,62 +5,62 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
+require 'config.php';
 
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
 function limpiarInput($campo)
 {
-    if (!empty($campo["phone"]) && $campo) {
-        die("Campo vacío");
-    }
-    $campo = trim($campo);
-    $campo = strip_tags($campo);
-    $campo = htmlspecialchars($campo, ENT_QUOTES, 'UTF-8');
-    return $campo;
+  if (!empty($campo["phone"]) && $campo) {
+    die("Campo vacío");
+  }
+  $campo = trim($campo);
+  $campo = strip_tags($campo);
+  $campo = htmlspecialchars($campo, ENT_QUOTES, 'UTF-8');
+  return $campo;
 }
 
 // Verificar si la solicitud es POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //https://danipastor.es/como-integrar-instalar-o-configurar-recaptcha-v3-de-google-en-un-formulario-con-php-enviado-por-post/
-    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-    $recaptcha_secret = '6LcyttIqAAAAAIQKYKQDD1ZQrcJJ0scH7pv6ub2q';
-    $recaptcha_response = $_POST['recaptcha_response'];
-    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
-    $recaptcha = json_decode($recaptcha);
+  //https://danipastor.es/como-integrar-instalar-o-configurar-recaptcha-v3-de-google-en-un-formulario-con-php-enviado-por-post/
+  $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+  $recaptcha_response = $_POST['recaptcha_response'];
+  $recaptcha = file_get_contents($recaptcha_url . '?secret=' . RECAPTCHA_SECRET . '&response=' . $recaptcha_response);
+  $recaptcha = json_decode($recaptcha);
 
-    if ($recaptcha->score >= 0.7) {
-        // OK. ERES HUMANO, EJECUTA ESTE CÓDIGO   
-        //Sanitización manual de los datos
-        $campos = array_map("limpiarInput", $_POST);
-        if (!empty($campos["email"]) && !filter_var($campos["email"], FILTER_VALIDATE_EMAIL)) die("El formato del email es inválido.");
+  if ($recaptcha->score >= 0.7) {
+    // OK. ERES HUMANO, EJECUTA ESTE CÓDIGO   
+    //Sanitización manual de los datos
+    $campos = array_map("limpiarInput", $_POST);
+    if (!empty($campos["email"]) && !filter_var($campos["email"], FILTER_VALIDATE_EMAIL)) die("El formato del email es inválido.");
 
-        if (preg_match("/[\r\n]/", $campos["email"])) die("Intento de inyección de cabecera detectado.");
+    if (preg_match("/[\r\n]/", $campos["email"])) die("Intento de inyección de cabecera detectado.");
 
-        $mail = new PHPMailer(true);
+    $mail = new PHPMailer(true);
 
-        try {
-            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                  //Enable verbose debug output
-            $mail->isSMTP();                                           //Send using SMTP
-            $mail->Host       = 'smtp.gmail.com';                      //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                  //Enable SMTP authentication
-            $mail->Username   = 'eldeivi.1002@gmail.com';           //SMTP username
-            $mail->AddEmbeddedImage(__DIR__ . '/images/logo.webp', 'logo', 'logo.webp');
-            $mail->Password   = 'ilcn pknu gtod whum';                 //SMTP password
-            $mail->SMTPSecure = 'ssl';                                 //Enable implicit TLS encryption
-            $mail->Port       = 465;                                   //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    try {
+      // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                  //Enable verbose debug output
+      $mail->isSMTP();                                           //Send using SMTP
+      $mail->Host       = 'smtp.gmail.com';                      //Set the SMTP server to send through
+      $mail->SMTPAuth   = true;                                  //Enable SMTP authentication
+      $mail->Username   = GOOGLE_EMAIL;           //SMTP username
+      $mail->AddEmbeddedImage(__DIR__ . '/images/logo.webp', 'logo', 'logo.webp');
+      $mail->Password   = GOOGLE_APP_PWD;                 //SMTP password
+      $mail->SMTPSecure = 'ssl';                                 //Enable implicit TLS encryption
+      $mail->Port       = 465;                                   //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-            $emailFrom = $campos["email"];
-            $nameFrom = $campos["name"];
-            $phoneFrom = $campos["phone"];
-            $message = nl2br($campos["message"]);
-            $timestamp = date("Y-m-d H:i:s");
+      $emailFrom = $campos["email"];
+      $nameFrom = $campos["name"];
+      $phoneFrom = $campos["phone"];
+      $message = nl2br($campos["message"]);
+      $timestamp = date("Y-m-d H:i:s");
 
-            $mail->setFrom($emailFrom, $nameFrom); // ¿Quién lo envía? El que rellena el formulario. Usurpación de identidad
-            $mail->addAddress('eldeivi.1002@gmail.com', 'Crossfit Arastur');   //Propietaria de la web
-            $mail->addReplyTo($emailFrom, $nameFrom);
+      $mail->setFrom($emailFrom, $nameFrom); // ¿Quién lo envía? El que rellena el formulario. Usurpación de identidad
+      $mail->addAddress(GOOGLE_EMAIL, 'Crossfit Arastur');   //Propietaria de la web
+      $mail->addReplyTo($emailFrom, $nameFrom);
 
-            $emailBody = <<<HTML
+      $emailBody = <<<HTML
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
@@ -184,32 +184,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 HTML;
 
 
-            //Content
-            $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = 'Formulario de contacto crossfitarastur.com';
-            $mail->Body    = $emailBody;
+      //Content
+      $mail->isHTML(true);                                  //Set email format to HTML
+      $mail->Subject = 'Formulario de contacto crossfitarastur.com';
+      $mail->Body    = $emailBody;
 
-            $mail->send();
+      $mail->send();
 
-            $response = [
-                'success' => true,
-                'message' => 'El formulario ha sido enviado correctamente.',
-            ];
-        } catch (Exception $e) {
-            $response = [
-                'success' => false,
-                'message' => 'Ha fallado el envío con la clase phpMailer: ' . $mail->ErrorInfo,
-            ];
-        }
-        header('Content-Type: application/json;charset=UTF-8');
-        echo json_encode($response);
-        exit;
-    } else {
-        // KO. ERES ROBOT, EJECUTA ESTE CÓDIGO
-        die("Eres un bot");
+      $response = [
+        'success' => true,
+        'message' => 'El formulario ha sido enviado correctamente.',
+      ];
+    } catch (Exception $e) {
+      $response = [
+        'success' => false,
+        'message' => 'Ha fallado el envío con la clase phpMailer: ' . $mail->ErrorInfo,
+      ];
     }
-} else {
-    // No vienes del formulario
-    http_response_code(403);
+    header('Content-Type: application/json;charset=UTF-8');
+    echo json_encode($response);
     exit;
+  } else {
+    // KO. ERES ROBOT, EJECUTA ESTE CÓDIGO
+    die("Eres un bot");
+  }
+} else {
+  // No vienes del formulario
+  http_response_code(403);
+  exit;
 }
