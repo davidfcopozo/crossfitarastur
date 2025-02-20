@@ -257,9 +257,16 @@ Array.from(forms).forEach((form) => {
       }
 
       try {
-        // Get reCAPTCHA token first
+        // Check if reCAPTCHA is loaded
+        if (typeof grecaptcha === "undefined") {
+          throw new Error(
+            "reCAPTCHA no está cargado. Por favor, actualice la página."
+          );
+        }
+
+        // Get reCAPTCHA token
         const token = await grecaptcha.execute(
-          "6LcyttIqAAAAAGprONMozegPj-NrafJsfci4GGFr",
+          "6Lehe90qAAAAAPEWmVnvUJSDBVOK3j4EfIyNyBjK",
           {
             action: "formulario",
           }
@@ -284,7 +291,7 @@ Array.from(forms).forEach((form) => {
         if (data.success) {
           // Show success modal
           const feedbackModal = new bootstrap.Modal(
-            d.getElementById("feedback")
+            document.getElementById("feedback")
           );
           feedbackModal.show();
 
@@ -292,7 +299,7 @@ Array.from(forms).forEach((form) => {
           form.reset();
           form.classList.remove("was-validated");
         } else {
-          throw new Error(data.message);
+          throw new Error(data.message || "Error desconocido");
         }
       } catch (error) {
         console.error("Error:", error);
@@ -527,7 +534,7 @@ d.addEventListener("DOMContentLoaded", () => {
           break;
         case "End":
           e.preventDefault();
-          items[items.length - 1].querySelector("summary").focus();
+          items[items.length - 1]?.querySelector("summary").focus();
           break;
       }
     });
