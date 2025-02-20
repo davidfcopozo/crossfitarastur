@@ -27,7 +27,7 @@
                     $text = "Más info";
                     $plan = "8 sesiones";
                     $message = urlencode("Hola, me gustaría información sobre el plan de  $plan.");
-                    $whatsapp = "https://wa.me/+34649238717?text=$message";
+                    $whatsapp = "https://api.whatsapp.com/send?phone=34649238717&text=$message";
                     $contact = "contacto.php?message=$message";
                     $link = preg_match('/(android|iphone|ipod|mobile)/i', $_SERVER['HTTP_USER_AGENT']) ? $whatsapp : $contact;
                     require "_partials/button.php"; ?>
@@ -52,7 +52,7 @@
                     $text = "Más info";
                     $plan = "12 sesiones";
                     $message = urlencode("Hola, me gustaría información sobre el plan de  $plan.");
-                    $whatsapp = "https://wa.me/+34649238717?text=$message";
+                    $whatsapp = "https://api.whatsapp.com/send?phone=34649238717&text=$message";
                     $contact = "contacto.php?message=$message";
                     $link = preg_match('/(android|iphone|ipod|mobile)/i', $_SERVER['HTTP_USER_AGENT']) ? $whatsapp : $contact;
                     require "_partials/button.php"; ?>
@@ -77,10 +77,9 @@
                     $text = "Más info";
                     $plan = "16 sesiones";
                     $message = urlencode("Hola, me gustaría información sobre el plan de  $plan.");
-                    $whatsapp = "https://wa.me/+34649238717?text=$message";
+                    $whatsapp = "https://api.whatsapp.com/send?phone=34649238717&text=$message";
                     $contact = "contacto.php?message=$message";
                     $link = preg_match('/(android|iphone|ipod|mobile)/i', $_SERVER['HTTP_USER_AGENT']) ? $whatsapp : $contact;
-                    $link = "contacto.php";
                     require "_partials/button.php"; ?>
                 </div>
             </div>
@@ -103,10 +102,9 @@
                     $text = "Más info";
                     $plan = "ilimitado";
                     $message = urlencode("Hola, me gustaría información sobre el plan de  $plan.");
-                    $whatsapp = "https://wa.me/+34649238717?text=$message";
+                    $whatsapp = "https://api.whatsapp.com/send?phone=34649238717&text=$message";
                     $contact = "contacto.php?message=$message";
                     $link = preg_match('/(android|iphone|ipod|mobile)/i', $_SERVER['HTTP_USER_AGENT']) ? $whatsapp : $contact;
-                    $link = "contacto.php";
                     require "_partials/button.php"; ?>
                 </div>
             </div>
