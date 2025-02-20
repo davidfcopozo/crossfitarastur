@@ -22,10 +22,23 @@ $font-primary: "Roboto", sans-serif;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+
+    @media (max-width: 767px) {
+      min-height: 100vh;
+      background-attachment: scroll; // Remove fixed attachment on mobile
+      background-position: center center;
+      height: auto;
+      padding: 100px 0; // Add padding instead of fixed height
+    }
   }
 
   .hero-bg {
     background-image: url(../images/header-bg.webp);
+
+    @media (max-width: 767px) {
+      background-position: center center;
+      background-size: cover;
+    }
   }
 
   .hero-content {
@@ -46,6 +59,15 @@ $font-primary: "Roboto", sans-serif;
       font-weight: 400;
       line-height: 1.5;
       margin: 0 0 25px 0;
+    }
+
+    @media (max-width: 767px) {
+      padding: 30px 15px;
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
     }
   }
 

@@ -4,7 +4,7 @@
     z-index: 0;
 
     .single-hero-component {
-      height: 100vh;
+      min-height: 100vh;
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -12,7 +12,10 @@
       background-size: cover;
 
       @media (max-width: 767px) {
-        height: 450px;
+        min-height: auto;
+        height: auto;
+        padding: 100px 0;
+        background-attachment: scroll;
       }
 
       @media (min-width: 768px) and (max-width: 991px) {
@@ -22,6 +25,7 @@
       .hero-component-text {
         @media (max-width: 767px) {
           margin: 0;
+          padding: 30px 15px;
         }
 
         span {
