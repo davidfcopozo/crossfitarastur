@@ -1,3 +1,6 @@
+<?php
+require "config.php";
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -64,10 +67,10 @@
         content="readaptacion deportiva, entrenamientos personales, CrossFit, ejercicios funcionales, box, RX, escalado, salud, crossfit zaragoza, crossfit aragon" />
 
     <!-- RECAPTCHA -->
-    <script src='https://www.google.com/recaptcha/api.js?render=6LcyttIqAAAAAGprONMozegPj-NrafJsfci4GGFr&badge=bottomleft'></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=<?php echo RECAPTCHA_PUBLIC; ?>"></script>
     <script>
         grecaptcha.ready(function() {
-            grecaptcha.execute('6LcyttIqAAAAAGprONMozegPj-NrafJsfci4GGFr', {
+            grecaptcha.execute("<?php echo RECAPTCHA_PUBLIC; ?>", {
                     action: 'formulario'
                 })
                 .then(function(token) {
