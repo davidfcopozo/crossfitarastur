@@ -70,10 +70,12 @@ d.addEventListener("DOMContentLoaded", () => {
         let scrolledTo = window.scrollY + window.innerHeight;
         backTop.style.display = "flex";
 
-        if (scrollHeight - scrolledTo > 24) {
-          backTop.style.bottom = "20px";
-        } else {
+        console.log(scrollHeight - scrolledTo);
+
+        if (scrollHeight - scrolledTo < 540) {
           backTop.style.bottom = "80px";
+        } else {
+          backTop.style.bottom = "20px";
         }
       } else {
         backTop.style.display = "none";
