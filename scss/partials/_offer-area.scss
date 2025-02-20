@@ -1,0 +1,120 @@
+.offer_area {
+  .container {
+    padding-inline: 2rem;
+    @media (min-width: 556px) {
+      padding-inline: 1rem;
+    }
+  }
+  background: {
+    repeat: no-repeat;
+    size: cover;
+    position: center center;
+  }
+  padding: 193px 0 210px;
+
+  &.offer_bg {
+    background-image: url(../images/offer.webp);
+  }
+
+  @media (max-width: 767px) {
+    padding: {
+      top: 50px;
+      bottom: 50px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    padding: {
+      top: 100px;
+      bottom: 70px;
+    }
+  }
+
+  .offer_text {
+    h4 {
+      font-size: 46px;
+      line-height: 56px;
+      font-family: var(--secondary-font);
+      color: #fff;
+      text-transform: uppercase;
+
+      @media (max-width: 767px) {
+        font-size: 30px;
+        line-height: 36px;
+      }
+    }
+
+    h3 {
+      color: var(--brand-color);
+      font-size: 100px;
+      font-weight: 400;
+      font-family: var(--primary-font);
+      line-height: 1;
+      margin: {
+        top: 24px;
+        bottom: 10px;
+      }
+
+      @media (max-width: 767px) {
+        font-size: 60px;
+        line-height: 66px;
+      }
+    }
+
+    p {
+      color: #ffffff;
+      font-size: 16px;
+      margin-bottom: 40px;
+      font-family: var(--secondary-font);
+    }
+    .fancy {
+      .text {
+        color: white !important;
+      }
+      &::before {
+        background-color: white !important;
+      }
+      &:hover::before {
+        background-color: white !important;
+      }
+      &:hover .text {
+        color: white !important;
+      }
+    }
+  }
+}
+
+.boxed-btn3 {
+  background: var(--brand-color);
+  color: #fff;
+  display: inline-block;
+  padding: 12px 53px;
+  font: {
+    family: var(--primary-font);
+    size: 16px;
+    weight: 500;
+  }
+  border: 1px solid transparent;
+  border-radius: 0;
+  text: {
+    align: center;
+    transform: uppercase;
+  }
+  transition: 0.3s;
+  cursor: pointer;
+  letter-spacing: 2px;
+
+  &:hover {
+    background: transparent;
+    color: var(--brand-color) !important;
+    border-color: var(--brand-color);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.large-width {
+    width: 220px;
+  }
+}

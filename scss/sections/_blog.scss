@@ -1,0 +1,219 @@
+/*---------------------
+  Blog Section
+-----------------------*/
+
+// Variables
+$primary-color: #e4381c;
+$background-color: #2e2e30;
+$white: #ffffff;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Blog Section
+.blog-section {
+  background: $background-color;
+  padding: {
+    top: 90px;
+    bottom: 66px;
+  }
+
+  .container {
+    padding-inline: 2rem;
+    @media (min-width: 556px) {
+      padding-inline: 1rem;
+    }
+  }
+
+  .section-title {
+    color: $white;
+    margin-bottom: 55px;
+
+    h2 {
+      font-size: 37px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-family: var(--secondary-font);
+    }
+  }
+}
+
+// Blog Item
+.blog-item {
+  position: relative;
+  margin-bottom: 30px;
+
+  &[data-setbg] {
+    background: {
+      position: center;
+      repeat: no-repeat;
+      size: cover;
+    }
+    object-fit: cover;
+  }
+
+  &:hover .play-btn {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // Blog Item Sizes
+  &.large-item {
+    height: 420px;
+  }
+  &.xl-large-item {
+    height: 440px;
+  }
+  &.xls-large-item {
+    height: 460px;
+  }
+  &.m-item {
+    height: 400px;
+  }
+
+  &.small-item {
+    height: 260px;
+  }
+  &.sm-item {
+    height: 330px;
+  }
+  &.sms-item {
+    height: 320px;
+  }
+
+  // Blog Text
+  .blog-text {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: {
+      left: 30px;
+      right: 30px;
+      bottom: 30px;
+    }
+
+    .categories {
+      font-size: 14px;
+      color: $white;
+      text-transform: uppercase;
+    }
+
+    h5 {
+      font-size: 20px;
+      color: $white;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+  }
+
+  // Instagram Item
+  &.instagram-item {
+    background: linear-gradient(to right, #e16521, $primary-color);
+    padding: 44px 30px 65px;
+
+    .instagram-text {
+      display: block;
+
+      .categories {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        color: $white;
+        text-transform: uppercase;
+        position: relative;
+
+        i {
+          font-size: 20px;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        p {
+          margin: 0 !important;
+        }
+      }
+
+      h5 {
+        font-size: 20px;
+        color: $white;
+        font-weight: 500;
+        margin-top: 10px;
+        text-transform: uppercase;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  // Play Button
+  .play-btn {
+    @include flex-center;
+    height: 100%;
+
+    .play-in-btn {
+      display: inline-block;
+      height: 60px;
+      width: 60px;
+      font-size: 22px;
+      background: $white;
+      text-align: center;
+      line-height: 62px;
+      color: $primary-color;
+      border-radius: 50%;
+      position: relative;
+      padding-left: 5px;
+
+      &::after {
+        position: absolute;
+        left: -5px;
+        top: -5px;
+        width: 70px;
+        height: 70px;
+        background: $white;
+        opacity: 0.3;
+        border-radius: 50%;
+        content: "";
+      }
+    }
+  }
+
+  &.set-bg {
+    background: {
+      size: cover;
+      position: center center;
+    }
+    height: 100%;
+  }
+}
+
+// Masonry Grid
+.masonry {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 0;
+  column-gap: 0;
+
+  &-item {
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}

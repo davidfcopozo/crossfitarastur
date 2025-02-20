@@ -1,0 +1,111 @@
+// _variables.scss
+$primary-color: white;
+$accent-color: var(--secondary-brand-color);
+$transition-duration: 0.3s;
+$border-color: #eee;
+
+// _mixins.scss
+@mixin transition(
+  $property: all,
+  $duration: $transition-duration,
+  $timing: ease-out
+) {
+  transition: $property $duration $timing;
+}
+
+// faq.scss
+.faq-accordion {
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--brand-color);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: $primary-color;
+    font-size: 1.75rem;
+  }
+}
+
+.faq-item {
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 0.5rem;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  // Remove default marker
+  &::-webkit-details-marker,
+  & *::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.faq-question {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  color: $primary-color;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  list-style: none;
+  @include transition(color);
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-75%) rotate(45deg);
+    @include transition(transform);
+  }
+
+  &:hover {
+    color: $accent-color;
+  }
+  &:focus-visible {
+    outline: white auto 0.5px;
+  }
+}
+
+.faq-answer {
+  padding: 0 0.5rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  p {
+    margin: 0;
+    padding: 1rem;
+    line-height: 1.6;
+    color: rgba($primary-color, 0.9);
+    font-family: var(--secondary-font);
+  }
+}
+
+details[open] {
+  .faq-question {
+    color: $accent-color;
+
+    &::after {
+      transform: translateY(-25%) rotate(-135deg);
+    }
+  }
+
+  .faq-answer {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

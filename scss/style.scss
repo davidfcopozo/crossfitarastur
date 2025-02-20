@@ -1,0 +1,26 @@
+// Import all partial files
+@use "partials/general";
+@use "partials/header";
+@use "partials/footer";
+@use "partials/hero-component";
+@use "partials/offer-area";
+@use "partials/button";
+@use "partials/faq";
+@use "partials/prices";
+
+// Import all section files
+@use "sections/hero";
+@use "sections/services";
+@use "sections/blog";
+@use "sections/team";
+@use "sections/schedules";
+@use "sections/contact";
+@use "sections/privacy-policy";
+
+// Import pages files
+@use "pages/home-page";
+@use "pages/services-page";
+@use "pages/blog-page";
+@use "pages/schedules-and-prices-page";
+@use "pages/single-post";
+@use "pages/_privacy-policy-page";

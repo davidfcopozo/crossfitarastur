@@ -1,0 +1,31 @@
+.schedule-prices-page {
+  .section-title {
+    color: var(--secondary-brand-color);
+    margin-block: 2em;
+
+    h2 {
+      font-size: 37px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  .section-padding30 {
+    padding-top: 0;
+  }
+
+  .feature_part {
+    padding-block: 3rem;
+    .section-title-wrapper {
+      display: none;
+    }
+  }
+  .date-tabs {
+    .section-tittle h2 {
+      display: none !important;
+    }
+    .btn-action {
+      display: none !important;
+    }
+  }
+}

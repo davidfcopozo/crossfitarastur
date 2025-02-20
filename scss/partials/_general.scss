@@ -1,0 +1,244 @@
+/*----- 1. Reset.css -----*/
+:root {
+  --brand-color: rgba(0, 144, 155);
+  --secondary-brand-color: #2e2e30;
+  --primary-font: "Bebas Neue", serif;
+  --secondary-font: "Montserrat", serif;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--primary-font);
+  letter-spacing: 2px;
+}
+
+p {
+  font-family: var(--primary-font);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+::-moz-selection {
+  color: #ffffff;
+  background: #009091;
+}
+
+::selection {
+  color: #ffffff;
+  background: #009091;
+}
+a {
+  text-decoration: none;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.recaptcha-invisible {
+  color: var(--secondary-brand-color) !important;
+
+  margin-top: 2rem;
+}
+.recaptcha-invisible a {
+  color: var(--brand-color) !important;
+}
+
+/* -------------------------------------------------------
+----------- Menu item hover --------------
+---------------------------------------------------------*/
+
+.past-main .active-page {
+  color: var(--secondary-brand-color) !important;
+  font-weight: bolder;
+}
+
+.active-page {
+  font-weight: bolder;
+  color: var(--brand-color) !important;
+}
+
+.active-page::before {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 48%;
+  height: 2px;
+  width: 90%;
+  background: var(--brand-color);
+  content: "";
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.active-page::before {
+  opacity: 1;
+}
+
+nav.past-main .active-page::before {
+  background: var(--secondary-brand-color);
+}
+
+/* -------------------------------------------------------
+----------- Form --------------
+---------------------------------------------------------*/
+
+.asterik {
+  color: var(--brand-color);
+}
+/* -------------------------------------------------------
+----------- Bact-to-Top Styling Starts Here --------------
+---------------------------------------------------------*/
+
+.back-to-top {
+  background: rgba(0, 144, 155, 0.5);
+  margin: 0;
+  position: fixed;
+  bottom: 80px;
+  right: 21px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  z-index: 90;
+  display: none;
+  text-decoration: none;
+  color: #009091;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.whatsapp-icon {
+  display: flex;
+  background: #43d97b;
+  margin: 0;
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  z-index: 90;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s ease-in;
+  svg {
+    fill: #fff;
+    transition: fill 0.3s ease;
+  }
+  &:hover {
+    transform: translate3d(0px, -5px, 0px);
+  }
+}
+
+.back-to-top svg {
+  width: 18px;
+  fill: #ffffff;
+  transition: fill 0.3s ease;
+}
+
+.back-to-top:hover {
+  background: rgba(0, 144, 155);
+  color: #ffffff;
+}
+
+.back-to-top:hover svg {
+  top: 6px;
+}
+
+.back-to-top:focus {
+  color: #ffffff;
+}
+
+.product .back-to-top {
+  background: rgba(0, 144, 155);
+}
+
+.product .back-to-top:hover {
+  background: rgba(0, 144, 155);
+}
+
+/*----------------------------------------------------
+------------- All ------------------------------------
+--------------------- Media --------------------------
+------------------------------- Queries --------------
+-----------------------------------------------------*/
+
+@media only screen and (min-width: 767px) {
+  .features .features-list {
+    padding: 100px 0 0 0;
+    text-align: left;
+  }
+
+  .features .features-list ul li {
+    font-size: 18px;
+    display: list-item;
+    text-align: left;
+  }
+
+  .split-content {
+    padding: 70px 350px 50px 10px;
+    text-align: left;
+  }
+
+  .split-content h1 {
+    font-size: 37px;
+  }
+
+  .pricing {
+    padding: 100px 0 100px 0;
+  }
+
+  .pricing-content {
+    text-align: left;
+  }
+
+  .cta-sub .cta-inner h1 {
+    font-size: 36px;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
+  .features .features-list {
+    padding: 80px 0 0 0;
+  }
+
+  .split-content {
+    padding: 100px 100px 50px 50px;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .cta-sub {
+    text-align: center;
+  }
+
+  .back-to-top {
+    right: 10px;
+  }
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1201px) {
+  .app-features .features-left,
+  .app-features .features-right {
+    padding: 0 0 0 0;
+  }
+}

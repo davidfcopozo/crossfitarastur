@@ -1,0 +1,154 @@
+/*---------------------
+Footer Section
+-----------------------*/
+
+.footer-section {
+  background: var(--secondary-brand-color);
+  padding-top: 72px;
+  .container {
+    padding-inline: 2rem;
+    @media (min-width: 556px) {
+      padding-inline: 1rem;
+    }
+  }
+  ul {
+    padding-left: 0 !important;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .footer-logo-item {
+    margin-bottom: 30px;
+    & .f-logo {
+      margin-bottom: 40px;
+      a {
+        display: inline-block;
+      }
+    }
+    p {
+      color: #afb4bf;
+      margin-bottom: 32px;
+    }
+    .social-links {
+      h6 {
+        color: #ffffff;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 1em;
+        font-size: 1.2rem;
+      }
+      a {
+        color: #ffffff;
+        display: inline-block;
+        font-size: 18px;
+        margin-right: 1rem;
+        transition: 0.1s ease-in;
+        &:hover {
+          transform: translate3d(0px, -5px, 0px);
+          color: var(--brand-color);
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .footer-widget {
+    margin-bottom: 30px;
+    h5 {
+      font-size: 20px;
+      font-weight: 500;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 1em;
+    }
+    .footer-blog {
+      .fb-item {
+        display: block;
+        margin-bottom: 20px;
+        &:hover h6 {
+          color: var(--brand-color);
+        }
+        h6 {
+          color: #ffffff;
+          text-transform: uppercase;
+          margin-bottom: 12px;
+          transition: all 0.3s;
+          font-family: var(--secondary-font);
+          font-size: 0.7rem;
+        }
+        span {
+          font-size: 14px;
+          text-transform: uppercase;
+          font-weight: 500;
+          display: block;
+          color: #afb4bf;
+          svg {
+            color: var(--brand-color);
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+    .workout-program {
+      li {
+        list-style: none;
+        a {
+          display: block;
+          font-size: 16px;
+          font-family: "Oswald", sans-serif;
+          font-weight: 500;
+          color: #ffffff;
+          line-height: 18px;
+          margin-bottom: 22px;
+        }
+      }
+    }
+    .footer-info {
+      li {
+        list-style: none;
+        font-size: 16px;
+        color: #afb4bf;
+        position: relative !important;
+        padding-left: 35px;
+        margin-bottom: 20px;
+        svg {
+          position: absolute;
+          left: 0;
+          top: 0;
+          font-size: 24px;
+          color: var(--brand-color);
+        }
+
+        span {
+          color: #ffffff;
+          display: block;
+          font-family: "Oswald", sans-serif;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .copyright-text {
+    background: #000000;
+    border-top: 1px solid #0a0a0a;
+    padding: 20px 0;
+    margin-top: 20px;
+    .ct-inside {
+      font-size: 14px;
+      color: #afb4bf;
+      p {
+        font-family: "Montserrat", "Sans" !important;
+      }
+      a {
+        font-weight: 600;
+        color: var(--brand-color);
+      }
+    }
+  }
+}

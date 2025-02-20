@@ -1,0 +1,132 @@
+.pricing-section {
+  background: var(--secondary-brand-color);
+  padding-block: 3rem;
+
+  .container {
+    padding-inline: 2rem;
+    @media (min-width: 556px) {
+      padding-inline: 1rem;
+    }
+  }
+
+  .section-title {
+    color: white !important;
+    margin-bottom: 56px;
+  }
+}
+
+.ps-item {
+  text-align: center;
+  padding: 40px 30px 52px;
+  border: 1px solid #464646;
+  transform: skewY(-4deg);
+  transition: all 0.5s;
+  margin-bottom: 30px;
+  position: relative;
+
+  h3 {
+    font-size: 28px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .pi-price {
+    margin-bottom: 30px;
+    transform: skewY(4deg);
+    .euro {
+      font-size: 0.65em;
+      color: inherit;
+    }
+    .month {
+      color: inherit;
+    }
+
+    h4 {
+      font-size: 60px;
+      color: var(--brand-color);
+      font-weight: 600;
+    }
+
+    span {
+      color: #c4c4c4;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+
+  ul {
+    margin-bottom: 40px;
+    transform: skewY(4deg);
+    padding-left: 0;
+
+    li {
+      font-size: 14px;
+      color: #c4c4c4;
+      line-height: 32px;
+      list-style: none;
+    }
+  }
+
+  .primary-btn.pricing-btn {
+    display: block;
+    background: #333333;
+    color: var(--brand-color);
+    transform: skewY(4deg);
+  }
+
+  .thumb-icon {
+    font-size: 48px;
+    color: var(--brand-color);
+    position: absolute;
+    left: 50px;
+    bottom: 120px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+
+    .euro {
+      color: var(--brand-color) !important;
+    }
+    .month {
+      color: var(--brand-color) !important;
+    }
+
+    .fancy {
+      .text {
+        color: var(--secondary-brand-color);
+      }
+      &::before {
+        background-color: var(--secondary-brand-color);
+      }
+    }
+
+    h3 {
+      color: var(--secondary-brand-color);
+    }
+
+    .pi-price span {
+      color: #444444;
+    }
+
+    ul li {
+      color: #111111;
+      font-weight: 600;
+    }
+
+    .primary-btn.pricing-btn {
+      background: var(--brand-color);
+      color: white;
+    }
+
+    .thumb-icon {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

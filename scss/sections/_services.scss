@@ -1,0 +1,174 @@
+// Variables
+$primary-color: rgba(0, 144, 155, 1);
+$white: #fff;
+$black: #000;
+$light-gray: #f0f0f0;
+
+/**************** service_part css start ****************/
+.feature_part {
+  position: relative;
+  z-index: 1;
+
+  .container {
+    padding-inline: 2rem;
+    @media (min-width: 556px) {
+      padding-inline: 1rem;
+    }
+  }
+  background: {
+    image: url("./images/Featured.webp");
+    position: center;
+    repeat: no-repeat;
+    size: contain;
+    color: $primary-color;
+  }
+  padding-block: 2rem;
+
+  h2 {
+    color: $white !important;
+  }
+
+  p {
+    font-family: "roboto", sans-serif;
+  }
+
+  &::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .single_feature_part {
+    text-align: center;
+    padding: 60px 30px 55px;
+    transition: 0.4s;
+    position: relative;
+    z-index: 1;
+    color: $white;
+
+    svg {
+      font-size: 3rem;
+      color: $white;
+      transition: fill 0.8s;
+      width: 3rem;
+      fill: $white;
+
+      &:hover {
+        fill: $black;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      left: 15%;
+      top: 10%;
+      content: "";
+      background: {
+        image: url(../images/single_feature_bg.webp);
+        size: contain;
+        repeat: no-repeat;
+        position: top;
+      }
+      width: 70%;
+      height: 100%;
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    span {
+      font-size: 40px;
+      color: $white;
+    }
+
+    h3 {
+      font-size: 24px;
+      text-transform: capitalize;
+      margin: 56px 15px 37px;
+      transition: 0.2s;
+    }
+
+    &:hover {
+      background-color: $light-gray;
+      color: $black;
+
+      &::after {
+        opacity: 1;
+      }
+      svg {
+        fill: $black !important;
+      }
+    }
+  }
+}
+
+// Media Queries
+@media (max-width: 991px) {
+  .feature_part {
+    background-image: url("");
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .feature_part .single_feature_part {
+    min-height: 640px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .feature_part .single_feature_part {
+    min-height: 540px !important;
+  }
+}
+
+/********** single service *************/
+.single_service {
+  padding: 130px 0 32px;
+
+  .single_single_service {
+    text-align: center;
+    margin-bottom: 95px;
+
+    h4 {
+      font-size: 22px;
+      margin: 35px 0px 25px;
+    }
+  }
+}
+
+.feature-sub {
+  padding: 200px 0;
+}
+
+.software .feature-sub .sub-inner h1 {
+  font-size: 42px;
+}
+
+// Media queries for single service
+@media (max-width: 575px) {
+  .single_service .single_single_service {
+    margin-bottom: 40px;
+
+    h4 {
+      margin: 15px 0px 10px;
+    }
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px),
+  only screen and (min-width: 768px) and (max-width: 991px) {
+  .single_service .single_single_service {
+    margin-bottom: 40px;
+
+    h4 {
+      margin: 15px 0px 10px;
+    }
+  }
+}

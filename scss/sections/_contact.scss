@@ -1,0 +1,140 @@
+.contact_section {
+  position: relative;
+
+  .container {
+    padding-inline: 2rem;
+    @media (min-width: 556px) {
+      padding-inline: 1rem;
+    }
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .form-check-input[type="checkbox"] {
+    border-radius: 0.25em;
+  }
+  input[type="checkbox"] {
+    margin-bottom: 10px;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: inline-block;
+  }
+  .form-check-input {
+    width: 1em;
+    height: 1em;
+    margin-top: 0.25em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid var(--secondary-brand-color);
+    color-adjust: exact;
+  }
+  label[for="agree"] {
+    margin-left: 10px;
+  }
+
+  label[for="agree"] a {
+    color: var(--brand-color);
+  }
+  .d-inline {
+    display: inline !important;
+  }
+  label,
+  legend {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  .bg-img {
+    position: absolute;
+    width: 100px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .heading_container {
+    justify-content: center;
+
+    h2 {
+      text-transform: unset;
+      span {
+        border-color: var(--brand-color) !important;
+      }
+    }
+  }
+  input {
+    border: none;
+    outline: none;
+    border-bottom: 0.8px solid #ac9784;
+    width: 90%;
+    margin: 10px 0;
+    border-radius: 0 !important;
+    outline: none !important;
+
+    &::placeholder {
+      color: #ac9784;
+    }
+  }
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+  border-color: var(--brand-color) !important;
+}
+
+.contact_form-container {
+  padding: 15px 0 15px 0;
+  .fancy {
+    .text {
+      color: black !important;
+    }
+    &::before {
+      background-color: black !important;
+    }
+    &:hover::before {
+      background-color: white !important;
+    }
+    &:hover .text {
+      color: white !important;
+    }
+  }
+  button {
+    border: none;
+    background-color: transparent;
+    text-transform: uppercase;
+  }
+}
+
+.map_container {
+  height: 350px;
+
+  .map-responsive {
+    height: 100%;
+    iframe {
+      max-width: 100% !important;
+      max-height: 100% !important;
+    }
+  }
+}
+
+.show {
+  display: flex !important;
+  .modal-dialog {
+    width: 40% !important;
+    margin-block: auto;
+  }
+}

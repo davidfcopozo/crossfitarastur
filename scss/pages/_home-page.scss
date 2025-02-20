@@ -1,0 +1,23 @@
+.main .blog-section .btn-action {
+  display: block;
+  width: 25%;
+  margin-top: 2rem;
+}
+
+.main {
+  .hero-section {
+    .fancy {
+      &::before {
+        background: white !important;
+      }
+      .text {
+        color: white !important;
+      }
+      .top-key,
+      .bottom-key-1,
+      .bottom-key-2 {
+        background: white !important ;
+      }
+    }
+  }
+}

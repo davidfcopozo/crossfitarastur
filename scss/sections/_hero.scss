@@ -1,0 +1,159 @@
+// Variables
+$primary-color: #009091;
+$secondary-color: #3f51b5;
+$text-dark: #262626;
+$text-light: #a1a1a1;
+$white: #ffffff;
+$font-primary: "Roboto", sans-serif;
+
+// Mixins
+@mixin transition($time: 200ms) {
+  transition: $time;
+}
+
+// Hero Section Base Styles
+.hero-section {
+  position: relative;
+  z-index: 0;
+  .single-hero-component {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .hero-bg {
+    background-image: url(../images/header-bg.webp);
+  }
+
+  .hero-content {
+    overflow: hidden;
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 400;
+      color: $white;
+      line-height: 1.2;
+      letter-spacing: 2px;
+    }
+
+    p {
+      font-family: $font-primary;
+      font-size: 1rem;
+      color: $text-light;
+      font-weight: 400;
+      line-height: 1.5;
+      margin: 0 0 25px 0;
+    }
+  }
+
+  // Button Styles
+  .btn-action {
+    font-family: $font-primary;
+    background-color: $primary-color;
+    border-radius: 0;
+    color: $white;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1;
+    padding: 20px 42px;
+    text-transform: uppercase;
+    outline: none;
+    @include transition;
+    visibility: visible;
+    animation-name: fadeInUp;
+    position: relative;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus {
+      background: transparent;
+      outline: none;
+      color: $white;
+      background-color: transparent;
+    }
+  }
+
+  // Product Specific Styles
+  .product .btn-action {
+    background-color: transparent;
+    border: 1px solid #82714a;
+    color: #82714a;
+
+    &:hover,
+    &:focus {
+      background: #92714a;
+      color: $white;
+      border-color: #82714a;
+    }
+  }
+
+  // Software Section Styles
+  .software {
+    .hero-section {
+      background: #f9f9f9;
+    }
+
+    .hero-content h2 {
+      font-size: 34px;
+      font-weight: 600;
+      color: #444444;
+      margin: 0 0 20px 0;
+    }
+
+    .btn-action {
+      font-family: Arial;
+      background-color: $secondary-color;
+      border: 1px solid $secondary-color;
+      border-radius: 50px;
+      color: $white;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      line-height: 1;
+      padding: 12px 24px;
+      text-transform: uppercase;
+      outline: none;
+      @include transition;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:active:focus {
+        background: transparent;
+        color: $secondary-color;
+        border-color: $secondary-color;
+      }
+    }
+
+    .hero-section img {
+      margin: 0 auto;
+    }
+  }
+
+  // Media Queries
+  @media only screen and (min-width: 767px) {
+    .form .hero-content {
+      overflow: hidden;
+    }
+  }
+
+  @media only screen and (max-width: 801px) {
+    .cs-main {
+      .right-section {
+        position: relative;
+        width: 100%;
+      }
+
+      .left-section {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+      }
+    }
+  }
+}
