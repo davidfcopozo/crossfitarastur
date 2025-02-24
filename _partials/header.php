@@ -88,7 +88,7 @@ require "config.php";
         rel="stylesheet"
         type="text/css"
         media="all" />
-    <script type="text/javascript" src="js/custom.js" defer></script>
+    <script type="text/javascript" src="js/.min.js" defer></script>
     <script>
         // Defer Clickio loading
         window.addEventListener('load', function() {
