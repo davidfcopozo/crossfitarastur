@@ -53,8 +53,8 @@ require "config.php";
         // Run consent check after page loads
         window.addEventListener("load", updateConsent);
     </script>
-    <!-- Clickio Consent Main tag -->
-    <script async type="text/javascript" src="//clickiocmp.com/t/consent_241358.js"></script>
+    <link rel="preconnect" href="//clickiocmp.com">
+    <link rel="dns-prefetch" href="//clickiocmp.com">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $title; ?></title>
@@ -91,10 +91,20 @@ require "config.php";
         media="all" />
     <script defer type="text/javascript" src="js/custom.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        // Defer Clickio loading
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var script = document.createElement('script');
+                script.src = '//clickiocmp.com/t/consent_241358.js';
+                script.setAttribute('importance', 'low');
+                document.body.appendChild(script);
+            }, 3000);
+        });
+    </script>
 </head>
 
 <body>
-    <!-- <div class="wrapper"> -->
     <header class="container">
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
