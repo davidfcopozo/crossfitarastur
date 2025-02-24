@@ -57,6 +57,7 @@ require "config.php";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $title; ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="favicon.ico" type="image/png" />
     <meta
         name="description"
@@ -66,7 +67,7 @@ require "config.php";
         content="readaptacion deportiva, entrenamientos personales, CrossFit, ejercicios funcionales, box, RX, escalado, salud, crossfit zaragoza, crossfit aragon, be cool crossfit zaragoza, becool crossfit zaragoza, box crossfit zaragoza, cross fit zaragoza, crossfit en zaragoza, crossfit eolo zaragoza, crossfit hiberus zaragoza, crossfit reebok zaragoza,crossfit rocalla zaragoza, crossfit zaragoza centro, crossfit zaragoza las fuentes, crossfit zaragoza precio, crossfit zgz, gimnasio crossfit zaragoza, hammerbox zaragoza, kronos crossfit zaragoza, reebok crossfit zaragoza, zaragoza crossfit" />
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js" defer></script>
     <!-- FONTS -->
     <link
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900"
@@ -81,7 +82,7 @@ require "config.php";
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script
         src="https://kit.fontawesome.com/a163031abf.js"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous" defer></script>
     <!-- Resource style -->
     <link
         href="css/style.min.css"
@@ -89,7 +90,6 @@ require "config.php";
         type="text/css"
         media="all" />
     <script type="text/javascript" src="js/custom.js" defer></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
         // Defer Clickio loading
         window.addEventListener('load', function() {
