@@ -5,8 +5,7 @@ require "config.php";
 <html lang="es">
 
 <head>
-    <!-- Clickio Cookie Consent Integration with Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZBQ25EFQXD"></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-ZBQ25EFQXD" async></script>
 
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -89,7 +88,7 @@ require "config.php";
         rel="stylesheet"
         type="text/css"
         media="all" />
-    <script defer type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/custom.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
         // Defer Clickio loading
