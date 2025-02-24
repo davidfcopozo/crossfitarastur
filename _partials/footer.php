@@ -105,7 +105,9 @@
         </g>
     </svg>
 </a>
-
+<script>
+    const RECAPTCHA_PUBLIC = '<?php echo RECAPTCHA_PUBLIC; ?>';
+</script>
 </body>
 
 </html>

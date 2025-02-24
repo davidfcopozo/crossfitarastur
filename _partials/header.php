@@ -66,19 +66,6 @@ require "config.php";
         name="keywords"
         content="readaptacion deportiva, entrenamientos personales, CrossFit, ejercicios funcionales, box, RX, escalado, salud, crossfit zaragoza, crossfit aragon, be cool crossfit zaragoza, becool crossfit zaragoza, box crossfit zaragoza, cross fit zaragoza, crossfit en zaragoza, crossfit eolo zaragoza, crossfit hiberus zaragoza, crossfit reebok zaragoza,crossfit rocalla zaragoza, crossfit zaragoza centro, crossfit zaragoza las fuentes, crossfit zaragoza precio, crossfit zgz, gimnasio crossfit zaragoza, hammerbox zaragoza, kronos crossfit zaragoza, reebok crossfit zaragoza, zaragoza crossfit" />
 
-    <!-- RECAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js?render=<?php echo RECAPTCHA_PUBLIC; ?>"></script>
-    <script>
-        grecaptcha.ready(function() {
-            grecaptcha.execute("<?php echo RECAPTCHA_PUBLIC; ?>", {
-                    action: 'formulario'
-                })
-                .then(function(token) {
-                    var recaptchaResponse = document.getElementById('recaptchaResponse');
-                    recaptchaResponse.value = token;
-                });
-        });
-    </script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
     <!-- FONTS -->

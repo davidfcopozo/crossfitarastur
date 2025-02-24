@@ -70,8 +70,6 @@ d.addEventListener("DOMContentLoaded", () => {
         let scrolledTo = window.scrollY + window.innerHeight;
         backTop.style.display = "flex";
 
-        console.log(scrollHeight - scrolledTo);
-
         if (scrollHeight - scrolledTo < 540) {
           backTop.style.bottom = "80px";
         } else {
@@ -311,6 +309,54 @@ Array.from(forms).forEach((form) => {
     false
   );
 });
+
+/********************************* LAZY LOAD RECAPTCHA *********************************/
+function loadRecaptcha() {
+  const script = document.createElement("script");
+  script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_PUBLIC}`;
+  document.body.appendChild(script);
+
+  script.onload = function () {
+    grecaptcha.ready(function () {
+      const form = document.querySelector("#form-scroll");
+      if (form) {
+        grecaptcha
+          .execute(RECAPTCHA_PUBLIC, { action: "formulario" })
+          .then(function (token) {
+            const recaptchaResponse =
+              document.getElementById("recaptchaResponse");
+            if (recaptchaResponse) {
+              recaptchaResponse.value = token;
+            }
+          });
+      }
+    });
+  };
+}
+
+// Intersection Observer for contact form
+document.addEventListener("DOMContentLoaded", function () {
+  const contactForm = document.querySelector("#form-scroll");
+
+  if (contactForm) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !window.grecaptcha) {
+            loadRecaptcha();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.01,
+      }
+    );
+
+    observer.observe(contactForm);
+  }
+});
+
 /************************************** COPYRIGTH DATE **************************************/
 let date = new Date(),
   time = d.querySelector(".copy-time"),
