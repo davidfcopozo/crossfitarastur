@@ -104,8 +104,188 @@ d.addEventListener("DOMContentLoaded", () => {
     navbar.style.backgroundColor = "#00909b";
   }
 
+  /*************************** Blog Masonry ***************************/
+  createMasonryItems();
+
+  // Add event listeners for masonry layout
+  const masonryEvents = ["load", "resize"];
+  masonryEvents.forEach((e) => {
+    window.addEventListener(e, resizeAllMasonryItems);
+  });
+
+  setTimeout(resizeAllMasonryItems, 100);
+
+  /*************************** FAQ Accordion ***************************/
+  initializeFAQAccordion();
+
+  /*************************** Contact Form & reCAPTCHA ***************************/
+  initializeContactForm();
+
+  /*************************** Hero Section Background ***************************/
+  initializeHeroBackground();
+
+  /*************************** Scroll To Form ***************************/
+  handleScrollToForm();
+
+  /*************************** Clickio Consent ***************************/
+  initializeClickioConsent();
+
   window.addEventListener("unload", cleanup, { once: true });
 });
+
+// Move function declarations outside DOMContentLoaded
+function initializeFAQAccordion() {
+  const details = d.querySelectorAll(".faq-item");
+
+  // Set initial styles for all answers
+  details.forEach((detail) => {
+    const answer = detail.querySelector(".faq-answer");
+    if (!detail.hasAttribute("open")) {
+      answer.style.opacity = "0";
+      answer.style.transform = "translateY(-10px)";
+    }
+  });
+
+  details.forEach((detail) => {
+    detail.addEventListener("click", (e) => {
+      if (e.target.tagName.toLowerCase() === "summary") {
+        e.preventDefault();
+
+        const clickedDetail = detail;
+        const clickedAnswer = clickedDetail.querySelector(".faq-answer");
+
+        // Close other details
+        details.forEach((otherDetail) => {
+          if (
+            otherDetail !== clickedDetail &&
+            otherDetail.hasAttribute("open")
+          ) {
+            const answer = otherDetail.querySelector(".faq-answer");
+            answer.style.opacity = "0";
+            answer.style.transform = "translateY(-10px)";
+
+            setTimeout(() => {
+              otherDetail.removeAttribute("open");
+            }, 400);
+          }
+        });
+
+        // Toggle current detail
+        if (clickedDetail.hasAttribute("open")) {
+          clickedAnswer.style.opacity = "0";
+          clickedAnswer.style.transform = "translateY(-10px)";
+
+          setTimeout(() => {
+            clickedDetail.removeAttribute("open");
+          }, 400);
+        } else {
+          clickedDetail.setAttribute("open", "");
+          // Force a reflow to trigger the transition
+          clickedAnswer.offsetHeight;
+          clickedAnswer.style.opacity = "1";
+          clickedAnswer.style.transform = "translateY(0)";
+        }
+      }
+    });
+
+    detail.querySelector("summary").addEventListener("keydown", (e) => {
+      const items = Array.from(details);
+      const index = items.indexOf(detail);
+
+      switch (e.key) {
+        case "ArrowUp":
+          e.preventDefault();
+          items[index - 1]?.querySelector("summary").focus();
+          break;
+        case "ArrowDown":
+          e.preventDefault();
+          items[index + 1]?.querySelector("summary").focus();
+          break;
+        case "Home":
+          e.preventDefault();
+          items[0].querySelector("summary").focus();
+          break;
+        case "End":
+          e.preventDefault();
+          items[items.length - 1]?.querySelector("summary").focus();
+          break;
+      }
+    });
+  });
+}
+
+function initializeContactForm() {
+  const contactForm = d.querySelector("#form-scroll");
+
+  if (contactForm) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !window.grecaptcha) {
+            loadRecaptcha();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.01,
+      }
+    );
+
+    observer.observe(contactForm);
+  }
+}
+
+function initializeHeroBackground() {
+  const heroSection = d.querySelector(".hero-component-bg");
+  if (heroSection) {
+    const bgImage = heroSection.getAttribute("data-setbg");
+    heroSection.style.backgroundImage = `url(../../images/${bgImage})`;
+  }
+}
+
+function handleScrollToForm() {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  if (
+    urlParams.has("message") &&
+    (page === "contacto.php" || page === "contacto")
+  ) {
+    const formElement = d.getElementById("form-scroll");
+
+    console.log(formElement);
+    if (formElement) {
+      formElement.style.scrollMargin = "7rem";
+      formElement.scrollIntoView({ behavior: "smooth", top: 80 });
+    }
+  }
+}
+
+function initializeClickioConsent() {
+  // Pre-allocate space for consent banner
+  const consentPlaceholder = document.createElement("div");
+  document.body.insertBefore(consentPlaceholder, document.body.firstChild);
+
+  // Handle consent banner loading
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes.length) {
+        mutation.addedNodes.forEach((node) => {
+          if (node.classList && node.classList.contains("cl-consent-node-p")) {
+            requestAnimationFrame(() => {
+              node.classList.add("loaded");
+            });
+          }
+        });
+      }
+    });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+}
 
 /************************************** Blog Masonry **************************************/
 
@@ -333,29 +513,6 @@ function loadRecaptcha() {
     });
   };
 }
-
-// Intersection Observer for contact form
-document.addEventListener("DOMContentLoaded", function () {
-  const contactForm = document.querySelector("#form-scroll");
-
-  if (contactForm) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !window.grecaptcha) {
-            loadRecaptcha();
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.01,
-      }
-    );
-
-    observer.observe(contactForm);
-  }
-});
 
 /************************************** COPYRIGTH DATE **************************************/
 let date = new Date(),
@@ -652,4 +809,40 @@ dynamicGallery.forEach((post) => {
     link.appendChild(span);
     footerBlog.appendChild(link);
   }
+});
+
+// Optimize Clickio consent banner
+document.addEventListener("DOMContentLoaded", function () {
+  // Pre-allocate space for consent banner
+  const consentPlaceholder = document.createElement("div");
+  document.body.insertBefore(consentPlaceholder, document.body.firstChild);
+
+  // Handle consent banner loading
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes.length) {
+        mutation.addedNodes.forEach((node) => {
+          if (node.classList && node.classList.contains("cl-consent-node-p")) {
+            requestAnimationFrame(() => {
+              node.classList.add("loaded");
+            });
+          }
+        });
+      }
+    });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+
+  // Clean up observer on unload
+  window.addEventListener(
+    "unload",
+    () => {
+      observer.disconnect();
+    },
+    { once: true }
+  );
 });
