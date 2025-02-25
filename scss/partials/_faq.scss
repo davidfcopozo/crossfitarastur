@@ -16,7 +16,6 @@ $border-color: #eee;
 // faq.scss
 .faq-accordion {
   width: 100%;
-  margin: 0 auto;
   background-color: var(--brand-color);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -25,55 +24,80 @@ $border-color: #eee;
 
   h2 {
     text-align: center;
-    margin-bottom: 2rem;
     color: $primary-color;
     font-size: 1.75rem;
+  }
+
+  // Fix Bootstrap accordion styles
+  .accordion-button {
+    background-color: $primary-color !important;
+    font-size: 0.7em;
+    box-shadow: none;
+
+    &:not(.collapsed) {
+      color: var(--secondary-brand-color);
+      background-color: $primary-color;
+      box-shadow: none;
+
+      &::after {
+        background-image: var(--bs-accordion-btn-icon);
+        transform: var(--bs-accordion-btn-icon-transform);
+      }
+    }
+
+    &:focus {
+      border-color: var(--secondary-brand-color);
+      box-shadow: 0 0 0 0.25rem rgba(var(--secondary-brand-color-rgb), 0.25);
+    }
+  }
+
+  .accordion-collapse {
+    transition: all 0.3s ease;
+
+    &.show {
+      visibility: visible;
+      height: auto;
+      opacity: 1;
+    }
+    &.show .accordion-body {
+      padding-top: 0.5rem;
+    }
+  }
+
+  .accordion-body {
+    padding: 0rem 1.25rem;
+    background-color: $primary-color;
+    transition: padding 0.3s ease-in-out;
   }
 }
 
 .faq-item {
-  border-bottom: 1px solid $border-color;
+  background-color: $primary-color !important;
   margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
 
   &:last-child {
-    border-bottom: none;
     margin-bottom: 0;
-  }
-
-  // Remove default marker
-  &::-webkit-details-marker,
-  & *::-webkit-details-marker {
-    display: none;
   }
 }
 
 .faq-question {
-  position: relative;
   width: 100%;
-  padding: 1rem;
-  color: $primary-color;
-  font-weight: 600;
-  font-size: 1.1rem;
   cursor: pointer;
   list-style: none;
-  @include transition(color);
 
-  &::after {
-    content: "";
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    width: 14px;
-    height: 14px;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: translateY(-75%) rotate(45deg);
-    @include transition(transform);
+  h2 {
+    margin-bottom: 0;
+    color: inherit;
+    font-size: inherit;
+    text-align: left;
   }
 
   &:hover {
     color: $accent-color;
   }
+
   &:focus-visible {
     outline: white auto 0.5px;
   }
@@ -81,31 +105,11 @@ $border-color: #eee;
 
 .faq-answer {
   padding: 0 0.5rem;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-10px);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 
   p {
     margin: 0;
     padding: 1rem;
     line-height: 1.6;
-    color: rgba($primary-color, 0.9);
-    font-family: var(--secondary-font);
-  }
-}
-
-details[open] {
-  .faq-question {
-    color: $accent-color;
-
-    &::after {
-      transform: translateY(-25%) rotate(-135deg);
-    }
-  }
-
-  .faq-answer {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
