@@ -17,7 +17,7 @@
                         <img
                             src="images/ivan_santurio.webp"
                             alt="Propietario y coach de CrossFit Arastur IVÁN SANTURIO"
-                            class="img-fluid mx-auto" />
+                            class="img-fluid mx-auto" loading="lazy" />
                     </div>
                     <div class="col-md-12">
                         <div class="pt-2">
@@ -63,7 +63,7 @@
                         <img
                             src="images/marta_puchan.webp"
                             alt="wrapkit"
-                            class="img-fluid mx-auto" />
+                            class="img-fluid mx-auto" loading="lazy" />
                     </div>
                     <div class="col-md-12">
                         <div class="pt-2">
