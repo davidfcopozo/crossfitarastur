@@ -21,4 +21,21 @@
       }
     }
   }
+
+  .contact_section {
+    .fancy {
+      background-color: var(--brand-color) !important;
+      &::before {
+        background: white !important;
+      }
+      .text {
+        color: white !important;
+      }
+      .top-key,
+      .bottom-key-1,
+      .bottom-key-2 {
+        background: white !important ;
+      }
+    }
+  }
 }

@@ -1954,6 +1954,20 @@ Footer Section
 .main .hero-section .fancy .bottom-key-2 {
   background: white !important;
 }
+.main .contact_section .fancy {
+  background-color: var(--brand-color) !important;
+}
+.main .contact_section .fancy::before {
+  background: white !important;
+}
+.main .contact_section .fancy .text {
+  color: white !important;
+}
+.main .contact_section .fancy .top-key,
+.main .contact_section .fancy .bottom-key-1,
+.main .contact_section .fancy .bottom-key-2 {
+  background: white !important;
+}
 
 .services-page .section-title-wrapper {
   display: none;
