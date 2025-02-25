@@ -400,7 +400,7 @@ Footer Section
   color: #ffffff;
   font-weight: 500;
   text-transform: uppercase;
-  margin-bottom: 1em;
+  margin-bottom: 0.8em;
   font-size: 1.2rem;
 }
 .footer-section .footer-logo-item .social-links a {
@@ -439,7 +439,7 @@ Footer Section
 .footer-section .footer-widget .footer-blog .fb-item h6 {
   color: #ffffff;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 0.2em;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   font-family: var(--secondary-font);
@@ -447,8 +447,6 @@ Footer Section
 }
 .footer-section .footer-widget .footer-blog .fb-item span {
   font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 500;
   display: block;
   color: #afb4bf;
 }

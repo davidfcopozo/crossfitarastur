@@ -697,7 +697,6 @@ dynamicGallery.forEach((post) => {
     let h6 = d.createElement("h6");
     let time = d.createElement("time");
     let span = d.createElement("span");
-    let icon = d.createElement("i");
 
     link.classList.add("fb-item");
     link.href = post.link;
@@ -708,10 +707,7 @@ dynamicGallery.forEach((post) => {
 
     span.classList.add("blog-time");
 
-    icon.classList.add("fa", "fa-clock-o", "order-2");
-
     time.innerText = postDate.toLocaleDateString("es-ES", opciones);
-    span.appendChild(icon);
 
     span.appendChild(time);
 
