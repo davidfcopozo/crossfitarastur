@@ -25,7 +25,7 @@ h6 {
 }
 
 p {
-  font-family: var(--primary-font);
+  font-family: var(--secondary-font);
 }
 
 img {
@@ -105,32 +105,13 @@ nav.past-main .active-page::before {
 ----------- Bact-to-Top Styling Starts Here --------------
 ---------------------------------------------------------*/
 
-.back-to-top {
-  background: rgba(0, 144, 155, 0.5);
-  margin: 0;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  z-index: 90;
-  display: none;
-  text-decoration: none;
-  color: #009091;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s;
-}
-
 .whatsapp-icon {
   display: flex;
   background: #43d97b;
   margin: 0;
   position: fixed;
   bottom: 20px;
-  left: 30px;
+  right: 30px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -148,32 +129,6 @@ nav.past-main .active-page::before {
   }
 }
 
-.back-to-top svg {
-  width: 18px;
-  fill: #ffffff;
-  transition: fill 0.3s ease;
-}
-
-.back-to-top:hover {
-  background: rgba(0, 144, 155);
-  color: #ffffff;
-}
-
-.back-to-top:hover svg {
-  top: 6px;
-}
-
-.back-to-top:focus {
-  color: #ffffff;
-}
-
-.product .back-to-top {
-  background: rgba(0, 144, 155);
-}
-
-.product .back-to-top:hover {
-  background: rgba(0, 144, 155);
-}
 /* Clickio Cookie Notice */
 .cl-consent-node-p {
   min-height: 48px;
