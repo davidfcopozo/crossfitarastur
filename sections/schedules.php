@@ -12,7 +12,7 @@
         <!-- Heading & Nav Button -->
         <div class="row justify-content-center mb-3">
             <div class="col-lg-11">
-                <p><span>*</span> Horario de la semana actual</p>
+                <p class="schedule-asterik"><span>*</span> Horario de la semana actual</p>
                 <div class="properties__button">
                     <!--Nav Button  -->
                     <nav>
@@ -32,50 +32,26 @@
         <!-- Tab content -->
         <div class="row justify-content-center">
 
-            <div class="col-lg-11 ">
+            <div class="col-lg-11 g-1">
                 <!-- Nav Card -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active gap-2" id="nav-monday" role="tabpanel" aria-labelledby="nav-monday-tab">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="tab-wrapper"></div>
-                            </div>
-                        </div>
+                        <div class="tab-wrapper row g-0 w-100"></div>
                     </div>
                     <div class="tab-pane fade" id="nav-tuesday" role="tabpanel" aria-labelledby="nav-tuesday-tab">
-                        <!--  <div class="row w-100"> -->
-                        <!--     <div class="col-12 "> -->
                         <div class="tab-wrapper row g-0 w-100"></div>
-                        <!--   </div> -->
-                        <!--  </div> -->
                     </div>
                     <div class="tab-pane fade" id="nav-wednesday" role="tabpanel" aria-labelledby="nav-wednesday-tab">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="tab-wrapper"></div>
-                            </div>
-                        </div>
+                        <div class="tab-wrapper row g-0 w-100"></div>
                     </div>
                     <div class="tab-pane fade" id="nav-thursday" role="tabpanel" aria-labelledby="nav-thursday-tab">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="tab-wrapper"></div>
-                            </div>
-                        </div>
+                        <div class="tab-wrapper row g-0 w-100"></div>
                     </div>
                     <div class="tab-pane fade" id="nav-friday" role="tabpanel" aria-labelledby="nav-friday-tab">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="tab-wrapper row"></div>
-                            </div>
-                        </div>
+                        <div class="tab-wrapper row g-0 w-100"></div>
                     </div>
                     <div class="tab-pane fade" id="nav-saturday" role="tabpanel" aria-labelledby="nav-saturday-tab">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="tab-wrapper"></div>
-                            </div>
-                        </div>
+                        <div class="tab-wrapper row g-0 w-100"></div>
                     </div>
                 </div>
                 <!-- End Nav Card -->

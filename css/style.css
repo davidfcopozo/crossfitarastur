@@ -1600,21 +1600,13 @@ Footer Section
   }
 }
 
-.date-tabs .tab-wrapper {
-  /*    display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; */
-  /*     @media (max-width: 575px) {
-    justify-content: center;
-  } */
+.date-tabs .schedule-asterik {
+  font-family: var(--primary-font) !important;
 }
 .date-tabs .tab-wrapper .single-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  /* width: 19%; */
-  /*  margin: 0.5rem;
-  */
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .date-tabs .tab-wrapper .single-box {

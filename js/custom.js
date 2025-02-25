@@ -558,7 +558,13 @@ async function fetchSheetData() {
           //If a container is defined on the code block above then create a div contianing the time and activity
           if (container) {
             const box = d.createElement("div");
-            box.classList.add("single-box", "col-sm-6", "col-md-4", "col-lg-3");
+            box.classList.add(
+              "single-box",
+              "col-sm-6",
+              "col-md-4",
+              "col-lg-3",
+              "mb-2"
+            );
             box.innerHTML = `
             <div class="px-2 w-100">
                           <div class="single-caption text-center">
