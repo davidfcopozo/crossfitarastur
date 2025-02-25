@@ -32,7 +32,7 @@
         <!-- Tab content -->
         <div class="row justify-content-center">
 
-            <div class="col-lg-11 gap-2">
+            <div class="col-lg-11 ">
                 <!-- Nav Card -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active gap-2" id="nav-monday" role="tabpanel" aria-labelledby="nav-monday-tab">
@@ -43,11 +43,11 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-tuesday" role="tabpanel" aria-labelledby="nav-tuesday-tab">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="tab-wrapper"></div>
-                            </div>
-                        </div>
+                        <!--  <div class="row w-100"> -->
+                        <!--     <div class="col-12 "> -->
+                        <div class="tab-wrapper row g-0 w-100"></div>
+                        <!--   </div> -->
+                        <!--  </div> -->
                     </div>
                     <div class="tab-pane fade" id="nav-wednesday" role="tabpanel" aria-labelledby="nav-wednesday-tab">
                         <div class="row">
@@ -66,7 +66,7 @@
                     <div class="tab-pane fade" id="nav-friday" role="tabpanel" aria-labelledby="nav-friday-tab">
                         <div class="row">
                             <div class="col-12">
-                                <div class="tab-wrapper"></div>
+                                <div class="tab-wrapper row"></div>
                             </div>
                         </div>
                     </div>
