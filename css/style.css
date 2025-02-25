@@ -64,13 +64,11 @@ a {
 ----------- Menu item hover --------------
 ---------------------------------------------------------*/
 .past-main .active-page {
-  color: var(--secondary-brand-color) !important;
-  font-weight: bolder;
+  color: white !important;
 }
 
 .active-page {
-  font-weight: bolder;
-  color: var(--brand-color) !important;
+  color: white !important;
 }
 
 .active-page::before {
@@ -81,7 +79,7 @@ a {
   top: 48%;
   height: 2px;
   width: 90%;
-  background: var(--brand-color);
+  background: white;
   content: "";
   opacity: 0;
   -webkit-transition: all 0.3s;
@@ -93,7 +91,7 @@ a {
 }
 
 nav.past-main .active-page::before {
-  background: var(--secondary-brand-color);
+  background: white;
 }
 
 /* -------------------------------------------------------
@@ -299,10 +297,10 @@ nav.past-main .active-page::before {
 }
 
 .navbar.past-main .nav-link:hover {
-  color: var(--secondary-brand-color) !important;
+  color: white !important;
 }
 .navbar.past-main .nav-link::after {
-  background: var(--secondary-brand-color) !important;
+  background: white !important;
 }
 
 .nav-item {

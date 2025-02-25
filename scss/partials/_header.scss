@@ -87,11 +87,11 @@ $white: #ffffff;
 .navbar.past-main {
   .nav-link {
     &:hover {
-      color: var(--secondary-brand-color) !important;
+      color: white !important;
     }
 
     &::after {
-      background: var(--secondary-brand-color) !important;
+      background: white !important;
     }
   }
 }
