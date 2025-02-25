@@ -1559,7 +1559,7 @@ Footer Section
 .team-member {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  padding: 2rem;
+  padding: 1rem;
 }
 .team-member:hover {
   -webkit-transform: translateY(-10px);

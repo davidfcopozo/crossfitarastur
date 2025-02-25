@@ -8,11 +8,12 @@
                 </p>
             </div>
         </div>
-        <div class="row justify-content-center gap-2 px-2 px-md-4">
+        <div class="row justify-content-center space-x-4 px-2 px-md-4">
             <!-- column  -->
-            <div class="team-member col-md-6 col-lg-4 mb-4">
+
+            <div class="team-member col-md-6 col-lg-4 mb-4 flex flex-column justify-content-between row me-4">
                 <!-- Row -->
-                <div class="row">
+                <div>
                     <div class="col-md-12 d-flex">
                         <img
                             src="images/ivan_santurio.webp"
@@ -29,36 +30,38 @@
                                 marca Built By Odin de programaciones personalizadas de
                                 CrossFit. CrossFit L1.
                             </h6>
-                            <div>
-                                <blockquote>CrossFit es mucho más que una marca. Es entender a
-                                    vivir una vida sana, donde el deporte, la alimentación y
-                                    la psicología son piezas clave para tener una buena
-                                    calidad de vida a pesar del paso de los años.</blockquote>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a href="#" class="text-decoration-none d-block px-1">
-                                            <i class="fa fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#" class="text-decoration-none d-block px-1">
-                                            <i class="fa-brands fa-x-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#" class="text-decoration-none d-block px-1">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="team-member col-md-6 col-lg-4 mb-4">
+                <div>
+                    <blockquote>CrossFit es mucho más que una marca. Es entender a
+                        vivir una vida sana, donde el deporte, la alimentación y
+                        la psicología son piezas clave para tener una buena
+                        calidad de vida a pesar del paso de los años.</blockquote>
+                </div>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="#" class="text-decoration-none d-block px-1">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="text-decoration-none d-block px-1">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="text-decoration-none d-block px-1">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
                 <!-- Row -->
-                <div class="row">
+            </div>
+            <div class="team-member col-md-6 col-lg-4 mb-4 flex flex-column justify-content-between row">
+                <!-- Row -->
+                <div>
                     <div class="col-md-12 d-flex">
                         <img
                             src="images/marta_puchan.webp"
@@ -74,28 +77,31 @@
                                 OWNER de CrossFit Arastur. Médica y traumatóloga
                                 deportiva. CrossFit L1 y L2.
                             </h6>
-                            <blockquote>Me siento afortunada de dedicar mi vida a mis dos grandes
-                                pasiones, la actividad física y la medicina.</blockquote>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-decoration-none d-block px-1">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-decoration-none d-block px-1">
-                                        <i class="fa-brands fa-x-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-decoration-none d-block px-1">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </li>
-                            </ul>
+
                         </div>
                     </div>
                 </div>
+                <div class="">
+                    <blockquote>Me siento afortunada de dedicar mi vida a mis dos grandes
+                        pasiones, la actividad física y la medicina.</blockquote>
+                </div>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="#" class="text-decoration-none d-block px-1">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="text-decoration-none d-block px-1">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="text-decoration-none d-block px-1">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
                 <!-- Row -->
             </div>
             <!-- column  -->
