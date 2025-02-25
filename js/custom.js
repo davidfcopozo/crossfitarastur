@@ -57,39 +57,7 @@ d.addEventListener("DOMContentLoaded", () => {
     link.ariaSelected = "true";
   }
 
-  /*************************** Scroll To Top ***************************/
-  const backTop = d.getElementById("back-top");
-
-  if (backTop) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 1000) {
-        //Height of the whole content
-        let scrollHeight = d.body.scrollHeight;
-
-        //Where I've scrolled to (window.scrollY is the scrolled position and window.innerHeight the height of the visible content)
-        let scrolledTo = window.scrollY + window.innerHeight;
-        backTop.style.display = "flex";
-
-        if (scrollHeight - scrolledTo < 540) {
-          backTop.style.bottom = "80px";
-        } else {
-          backTop.style.bottom = "20px";
-        }
-      } else {
-        backTop.style.display = "none";
-      }
-    });
-
-    backTop.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    });
-  }
-
-  /*************************** Parallax scroll effect for hero section ***************************/
+  /************************ Parallax scroll effect for hero section ************************/
   const heroSection = d.querySelector(".hero-parallax");
   window.addEventListener("scroll", () => {
     const scrollPosition = window.scrollY;
@@ -105,18 +73,7 @@ d.addEventListener("DOMContentLoaded", () => {
   }
 
   /*************************** Blog Masonry ***************************/
-  createMasonryItems();
-
-  // Add event listeners for masonry layout
-  const masonryEvents = ["load", "resize"];
-  masonryEvents.forEach((e) => {
-    window.addEventListener(e, resizeAllMasonryItems);
-  });
-
-  setTimeout(resizeAllMasonryItems, 100);
-
-  /*************************** FAQ Accordion ***************************/
-  initializeFAQAccordion();
+  initBlogMasonry();
 
   /*************************** Contact Form & reCAPTCHA ***************************/
   initializeContactForm();
@@ -130,87 +87,32 @@ d.addEventListener("DOMContentLoaded", () => {
   /*************************** Clickio Consent ***************************/
   initializeClickioConsent();
 
+  lazyLoadBackgroundImages();
+
   window.addEventListener("unload", cleanup, { once: true });
 });
 
-// Move function declarations outside DOMContentLoaded
-function initializeFAQAccordion() {
-  const details = d.querySelectorAll(".faq-item");
+function lazyLoadBackgroundImages() {
+  const bgElements = document.querySelectorAll("[data-setbg]");
 
-  // Set initial styles for all answers
-  details.forEach((detail) => {
-    const answer = detail.querySelector(".faq-answer");
-    if (!detail.hasAttribute("open")) {
-      answer.style.opacity = "0";
-      answer.style.transform = "translateY(-10px)";
-    }
-  });
-
-  details.forEach((detail) => {
-    detail.addEventListener("click", (e) => {
-      if (e.target.tagName.toLowerCase() === "summary") {
-        e.preventDefault();
-
-        const clickedDetail = detail;
-        const clickedAnswer = clickedDetail.querySelector(".faq-answer");
-
-        // Close other details
-        details.forEach((otherDetail) => {
-          if (
-            otherDetail !== clickedDetail &&
-            otherDetail.hasAttribute("open")
-          ) {
-            const answer = otherDetail.querySelector(".faq-answer");
-            answer.style.opacity = "0";
-            answer.style.transform = "translateY(-10px)";
-
-            setTimeout(() => {
-              otherDetail.removeAttribute("open");
-            }, 400);
-          }
-        });
-
-        // Toggle current detail
-        if (clickedDetail.hasAttribute("open")) {
-          clickedAnswer.style.opacity = "0";
-          clickedAnswer.style.transform = "translateY(-10px)";
-
-          setTimeout(() => {
-            clickedDetail.removeAttribute("open");
-          }, 400);
-        } else {
-          clickedDetail.setAttribute("open", "");
-          // Force a reflow to trigger the transition
-          clickedAnswer.offsetHeight;
-          clickedAnswer.style.opacity = "1";
-          clickedAnswer.style.transform = "translateY(0)";
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const element = entry.target;
+          const bgImage = element.getAttribute("data-setbg");
+          element.style.backgroundImage = `url(../images/${bgImage})`;
+          observer.unobserve(element);
         }
-      }
-    });
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
 
-    detail.querySelector("summary").addEventListener("keydown", (e) => {
-      const items = Array.from(details);
-      const index = items.indexOf(detail);
-
-      switch (e.key) {
-        case "ArrowUp":
-          e.preventDefault();
-          items[index - 1]?.querySelector("summary").focus();
-          break;
-        case "ArrowDown":
-          e.preventDefault();
-          items[index + 1]?.querySelector("summary").focus();
-          break;
-        case "Home":
-          e.preventDefault();
-          items[0].querySelector("summary").focus();
-          break;
-        case "End":
-          e.preventDefault();
-          items[items.length - 1]?.querySelector("summary").focus();
-          break;
-      }
-    });
+  bgElements.forEach((element) => {
+    observer.observe(element);
   });
 }
 
@@ -327,72 +229,81 @@ const galleryItems = [
 ];
 
 let dynamicGallery =
-  page === "blog.php" ? galleryItems : galleryItems.slice(0, 4);
+  page === "blog.php" || page === "blog"
+    ? galleryItems
+    : galleryItems.slice(0, 4);
 
-// Function to create masonry items
 function createMasonryItems() {
   const container = d.getElementById("masonry-container");
 
-  dynamicGallery.forEach((item) => {
-    // Create the main column element
-    const columnDiv = d.createElement("div");
-    columnDiv.className = "col-lg-4 col-md-6 grid-item masonry-item";
+  if (container) {
+    container.innerHTML = "";
 
-    // Create blog item div with appropriate class based on type
-    const blogItemDiv = d.createElement("div");
-    blogItemDiv.className = `blog-item ${item.type}-item`;
+    dynamicGallery.forEach((item) => {
+      // Create the main column element
+      const columnDiv = d.createElement("div");
+      columnDiv.className = "col-lg-4 col-md-6 grid-item masonry-item";
 
-    // Set background image if it exists
-    if (item.image) {
-      blogItemDiv.setAttribute("data-setbg", item.image);
-      blogItemDiv.style.backgroundImage = `url(../images/${item.image})`;
-    }
+      // Create blog item div with appropriate class based on type
+      const blogItemDiv = d.createElement("div");
+      blogItemDiv.className = `blog-item ${item.type}-item`;
 
-    // Create the link element
-    const linkElement = d.createElement("a");
-    linkElement.href = item.link;
-    linkElement.className =
-      item.type === "instagram" ? "instagram-text" : "blog-text";
-    if (item.type === "instagram") {
-      linkElement.target = "_blank";
-    }
+      // Set background image if it exists
+      if (item.image) {
+        blogItemDiv.setAttribute("data-setbg", item.image);
+        blogItemDiv.style.backgroundImage = `../../images/${item.image}`;
+      }
 
-    // Create categories div
-    const categoriesDiv = d.createElement("div");
-    categoriesDiv.className = "categories";
-    if (item.type === "instagram") {
-      const categoryParagraph = d.createElement("p");
-      categoryParagraph.textContent = item.category;
-      categoriesDiv.appendChild(categoryParagraph);
+      // Create the link element
+      const linkElement = d.createElement("a");
+      linkElement.href = item.link;
+      linkElement.className =
+        item.type === "instagram" ? "instagram-text" : "blog-text";
+      if (item.type === "instagram") {
+        linkElement.target = "_blank";
+      }
 
-      const instagramIcon = d.createElement("i");
-      instagramIcon.className = "fa fa-instagram";
-      categoriesDiv.appendChild(instagramIcon);
-    } else {
-      categoriesDiv.textContent = item.category;
-    }
+      // Create categories div
+      const categoriesDiv = d.createElement("div");
+      categoriesDiv.className = "categories";
+      if (item.type === "instagram") {
+        const categoryParagraph = d.createElement("p");
+        categoryParagraph.textContent = item.category;
+        categoriesDiv.appendChild(categoryParagraph);
 
-    const heading = d.createElement("h5");
-    heading.textContent = item.title;
+        const instagramIcon = d.createElement("i");
+        instagramIcon.className = "fa fa-instagram";
+        categoriesDiv.appendChild(instagramIcon);
+      } else {
+        categoriesDiv.textContent = item.category;
+      }
 
-    linkElement.appendChild(categoriesDiv);
-    linkElement.appendChild(heading);
-    blogItemDiv.appendChild(linkElement);
-    columnDiv.appendChild(blogItemDiv);
-    container.appendChild(columnDiv);
-  });
+      const heading = d.createElement("h5");
+      heading.textContent = item.title;
+
+      linkElement.appendChild(categoriesDiv);
+      linkElement.appendChild(heading);
+      blogItemDiv.appendChild(linkElement);
+      columnDiv.appendChild(blogItemDiv);
+      container.appendChild(columnDiv);
+    });
+  }
 }
 
 // Masonry layout function
 function resizeMasonryItem(item) {
   const grid = d.querySelector(".masonry");
+  if (!grid) return;
+
   const rowGap = parseInt(
-    window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
+    window.getComputedStyle(grid).getPropertyValue("grid-row-gap") || "0"
   );
   const rowHeight = parseInt(
-    window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
+    window.getComputedStyle(grid).getPropertyValue("grid-auto-rows") || "0"
   );
   const content = item.querySelector(".blog-item");
+  if (!content) return;
+
   const rowSpan = Math.ceil(
     (content.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap)
   );
@@ -407,17 +318,22 @@ function resizeAllMasonryItems() {
   }
 }
 
-d.addEventListener("DOMContentLoaded", () => {
-  createMasonryItems();
+function initBlogMasonry() {
+  // Only run if the container exists
+  if (d.getElementById("masonry-container")) {
+    createMasonryItems();
 
-  // Add event listeners for masonry layout
-  const masonryEvents = ["load", "resize"];
-  masonryEvents.forEach((e) => {
-    window.addEventListener(e, resizeAllMasonryItems);
-  });
+    // Add event listeners for masonry layout
+    const masonryEvents = ["load", "resize"];
+    masonryEvents.forEach((e) => {
+      window.addEventListener(e, resizeAllMasonryItems, {
+        signal: scrollController.signal,
+      });
+    });
 
-  setTimeout(resizeAllMasonryItems, 100);
-});
+    setTimeout(resizeAllMasonryItems, 100);
+  }
+}
 
 /************************************** FORM **************************************/
 // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -642,13 +558,15 @@ async function fetchSheetData() {
           //If a container is defined on the code block above then create a div contianing the time and activity
           if (container) {
             const box = d.createElement("div");
-            box.className = "single-box";
+            box.classList.add("single-box", "col-sm-6", "col-md-4", "col-lg-3");
             box.innerHTML = `
+            <div class="px-2 w-100">
                           <div class="single-caption text-center">
                               <div class="caption">
                                   <span>${time}</span>
                                   <h3>${activity}</h3>
                               </div>
+                          </div>
                           </div>`;
             container.appendChild(box);
           }
@@ -745,13 +663,6 @@ d.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /************************************** HERO SECTION BG **************************************/
-  const heroSection = d.querySelector(".hero-component-bg");
-  if (heroSection) {
-    const bgImage = heroSection.getAttribute("data-setbg");
-    heroSection.style.backgroundImage = `url(../../images/${bgImage})`;
-  }
-
   /************************************** SCROLL TO FORM **************************************/
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -790,7 +701,6 @@ dynamicGallery.forEach((post) => {
 
     link.classList.add("fb-item");
     link.href = post.link;
-    link.target = "_blank";
 
     h6.textContent = post.title;
 
