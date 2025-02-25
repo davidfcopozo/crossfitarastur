@@ -25,7 +25,7 @@ h6 {
 }
 
 p {
-  font-family: var(--primary-font);
+  font-family: var(--secondary-font);
 }
 
 img {
@@ -106,30 +106,6 @@ nav.past-main .active-page::before {
 /* -------------------------------------------------------
 ----------- Bact-to-Top Styling Starts Here --------------
 ---------------------------------------------------------*/
-.back-to-top {
-  background: rgba(0, 144, 155, 0.5);
-  margin: 0;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  z-index: 90;
-  display: none;
-  text-decoration: none;
-  color: #009091;
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
 .whatsapp-icon {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -138,7 +114,7 @@ nav.past-main .active-page::before {
   margin: 0;
   position: fixed;
   bottom: 20px;
-  left: 30px;
+  right: 30px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -161,34 +137,6 @@ nav.past-main .active-page::before {
 .whatsapp-icon:hover {
   -webkit-transform: translate3d(0px, -5px, 0px);
           transform: translate3d(0px, -5px, 0px);
-}
-
-.back-to-top svg {
-  width: 18px;
-  fill: #ffffff;
-  -webkit-transition: fill 0.3s ease;
-  transition: fill 0.3s ease;
-}
-
-.back-to-top:hover {
-  background: rgb(0, 144, 155);
-  color: #ffffff;
-}
-
-.back-to-top:hover svg {
-  top: 6px;
-}
-
-.back-to-top:focus {
-  color: #ffffff;
-}
-
-.product .back-to-top {
-  background: rgb(0, 144, 155);
-}
-
-.product .back-to-top:hover {
-  background: rgb(0, 144, 155);
 }
 
 /* Clickio Cookie Notice */
@@ -609,6 +557,7 @@ Footer Section
   line-height: 1;
   margin-top: 5px;
   margin-bottom: 23px;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 }
 .hero-component-area .single-hero-component .hero-component-text h1 span {
   font-weight: 700;
@@ -860,7 +809,6 @@ Footer Section
 
 .faq-accordion {
   width: 100%;
-  margin: 0 auto;
   background-color: var(--brand-color);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -870,50 +818,70 @@ Footer Section
 }
 .faq-accordion h2 {
   text-align: center;
-  margin-bottom: 2rem;
   color: white;
   font-size: 1.75rem;
 }
+.faq-accordion .accordion-button {
+  background-color: white !important;
+  font-size: 0.7em;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.faq-accordion .accordion-button:not(.collapsed) {
+  color: var(--secondary-brand-color);
+  background-color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.faq-accordion .accordion-button:not(.collapsed)::after {
+  background-image: var(--bs-accordion-btn-icon);
+  -webkit-transform: var(--bs-accordion-btn-icon-transform);
+          transform: var(--bs-accordion-btn-icon-transform);
+}
+.faq-accordion .accordion-button:focus {
+  border-color: var(--secondary-brand-color);
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(var(--secondary-brand-color-rgb), 0.25);
+          box-shadow: 0 0 0 0.25rem rgba(var(--secondary-brand-color-rgb), 0.25);
+}
+.faq-accordion .accordion-collapse {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.faq-accordion .accordion-collapse.show {
+  visibility: visible;
+  height: auto;
+  opacity: 1;
+}
+.faq-accordion .accordion-collapse.show .accordion-body {
+  padding-top: 0.5rem;
+}
+.faq-accordion .accordion-body {
+  padding: 0rem 1.25rem;
+  background-color: white;
+  -webkit-transition: padding 0.3s ease-in-out;
+  transition: padding 0.3s ease-in-out;
+}
 
 .faq-item {
-  border-bottom: 1px solid #eee;
+  background-color: white !important;
   margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
 }
 .faq-item:last-child {
-  border-bottom: none;
   margin-bottom: 0;
-}
-.faq-item::-webkit-details-marker, .faq-item *::-webkit-details-marker {
-  display: none;
 }
 
 .faq-question {
-  position: relative;
   width: 100%;
-  padding: 1rem;
-  color: white;
-  font-weight: 600;
-  font-size: 1.1rem;
   cursor: pointer;
   list-style: none;
-  -webkit-transition: color 0.3s ease-out;
-  transition: color 0.3s ease-out;
 }
-.faq-question::after {
-  content: "";
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  width: 14px;
-  height: 14px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  -webkit-transform: translateY(-75%) rotate(45deg);
-          transform: translateY(-75%) rotate(45deg);
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+.faq-question h2 {
+  margin-bottom: 0;
+  color: inherit;
+  font-size: inherit;
+  text-align: left;
 }
 .faq-question:hover {
   color: var(--secondary-brand-color);
@@ -924,10 +892,6 @@ Footer Section
 
 .faq-answer {
   padding: 0 0.5rem;
-  overflow: hidden;
-  opacity: 0;
-  -webkit-transform: translateY(-10px);
-          transform: translateY(-10px);
   -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -937,21 +901,6 @@ Footer Section
   margin: 0;
   padding: 1rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
-  font-family: var(--secondary-font);
-}
-
-details[open] .faq-question {
-  color: var(--secondary-brand-color);
-}
-details[open] .faq-question::after {
-  -webkit-transform: translateY(-25%) rotate(-135deg);
-          transform: translateY(-25%) rotate(-135deg);
-}
-details[open] .faq-answer {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
 }
 
 .pricing-section {
@@ -1113,6 +1062,7 @@ details[open] .faq-answer {
   color: #ffffff;
   line-height: 1.2;
   letter-spacing: 2px;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 }
 .hero-section .hero-content p {
   font-family: "Roboto", sans-serif;
@@ -1387,6 +1337,7 @@ details[open] .faq-answer {
   font-weight: 600;
   line-height: 1.4;
   text-transform: uppercase;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 }
 .blog-section .section-title p {
   font-family: var(--secondary-font);
@@ -1655,44 +1606,36 @@ details[open] .faq-answer {
 }
 
 .date-tabs .tab-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-@media (max-width: 575px) {
-  .date-tabs .tab-wrapper {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
+  /*    display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; */
+  /*     @media (max-width: 575px) {
+    justify-content: center;
+  } */
 }
 .date-tabs .tab-wrapper .single-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 19%;
-  margin: 0.5rem;
+  /* width: 19%; */
+  /*  margin: 0.5rem;
+  */
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .date-tabs .tab-wrapper .single-box {
-    width: 23%;
+    /*   width: 23%; */
     margin-bottom: 20px;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .date-tabs .tab-wrapper .single-box {
-    width: 47%;
+    /* width: 47%; */
     margin-bottom: 20px;
   }
 }
 @media (max-width: 575px) {
   .date-tabs .tab-wrapper .single-box {
-    width: 75%;
+    /*   width: 75%; */
     margin-bottom: 20px;
   }
 }
@@ -2002,6 +1945,9 @@ details[open] .faq-answer {
   margin-top: 2rem;
 }
 
+.main .hero-section .fancy {
+  background-color: var(--brand-color) !important;
+}
 .main .hero-section .fancy::before {
   background: white !important;
 }
