@@ -1,10 +1,23 @@
 <?php
 require "config.php";
+$noIndex = isset($noIndex) ? $noIndex : false;
 ?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
+    <meta charset="UTF-8" />
+    <script>
+        // Defer Clickio loading
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var script = document.createElement('script');
+                script.src = '//clickiocmp.com/t/consent_241358.js';
+                script.setAttribute('importance', 'low');
+                document.body.appendChild(script);
+            }, 3000);
+        });
+    </script>
     <script src="https://www.googletagmanager.com/gtag/js?id=G-ZBQ25EFQXD" async></script>
 
     <script>
@@ -52,9 +65,11 @@ require "config.php";
         // Run consent check after page loads
         window.addEventListener("load", updateConsent);
     </script>
+    <?php if ($noIndex): ?>
+        <meta name="robots" content="noindex, nofollow">
+    <?php endif; ?>
     <link rel="preconnect" href="//clickiocmp.com">
     <link rel="dns-prefetch" href="//clickiocmp.com">
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $title; ?></title>
     <link rel="icon" href="favicon.ico" type="image/png" />
@@ -69,7 +84,7 @@ require "config.php";
     <script src="js/bootstrap.min.js" defer></script>
     <!-- FONTS -->
     <link
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
         rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -88,19 +103,9 @@ require "config.php";
         rel="stylesheet"
         type="text/css"
         media="all" />
-    <!--     <script type="text/javascript" src="js/custom.min.js" defer></script> -->
+    <!-- <script type="text/javascript" src="js/custom.min.js" defer></script> -->
     <script type="text/javascript" src="js/custom.js" defer></script>
-    <script>
-        // Defer Clickio loading
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                var script = document.createElement('script');
-                script.src = '//clickiocmp.com/t/consent_241358.js';
-                script.setAttribute('importance', 'low');
-                document.body.appendChild(script);
-            }, 3000);
-        });
-    </script>
+
 </head>
 
 <body>
