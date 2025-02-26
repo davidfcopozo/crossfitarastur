@@ -1,5 +1,6 @@
 <?php
 $title = "Política de privacidad | Crossfit Arastur";
+$noIndex = true;
 require "_partials/header.php"; ?>
 <main class="privacy-policy">
     <div>
