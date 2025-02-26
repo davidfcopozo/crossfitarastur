@@ -2,6 +2,10 @@ ErrorDocument 404 /404
 #RewriteEngine On
 
 RewriteEngine On
+<Directory /var/www/html>
+    AllowOverride All
+</Directory>
+
 
 # Remove .html extension
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -29,5 +33,36 @@ RewriteRule ^blog[[:space:]]arastur[[:space:]]crossfit\.html$ /blog [R=301,L]
 <IfModule mod_headers.c>
     <FilesMatch "\.(js|css|html|xml|json|txt)$">
         Header append Vary: Accept-Encoding
+    </FilesMatch>
+</IfModule>
+
+# Enable mod_expires and mod_headers for caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Cache images, CSS, and JS files for 30 days
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType image/webp "access plus 30 days"
+    ExpiresByType image/gif "access plus 30 days"
+    ExpiresByType text/css "access plus 30 days"
+    ExpiresByType application/javascript "access plus 30 days"
+    ExpiresByType text/javascript "access plus 30 days"
+    ExpiresByType application/font-woff2 "access plus 30 days"
+    ExpiresByType application/font-woff "access plus 30 days"
+</IfModule>
+
+# Set Cache-Control header
+<IfModule mod_headers.c>
+    # Cache static assets (images, CSS, JS) for 30 days
+    <FilesMatch "\.(jpg|jpeg|png|gif|css|js|ico|woff|woff2|ttf|svg|webp)$">
+        Header set Cache-Control "public, max-age=2592000, immutable"
+    </FilesMatch>
+</IfModule>
+
+# Disable caching for dynamic content (e.g., HTML, PHP)
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html|php)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
     </FilesMatch>
 </IfModule>
