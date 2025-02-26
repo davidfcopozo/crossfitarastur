@@ -67,7 +67,10 @@ d.addEventListener("DOMContentLoaded", () => {
   });
   let path = window.location.pathname.split("/");
 
-  if (path[path.length - 1] === "politica-de-privacidad.php") {
+  if (
+    path[path.length - 1] === "politica-de-privacidad.php" ||
+    path[path.length - 1] === "politica-de-privacidad"
+  ) {
     const navbar = d.querySelector(".navbar");
     navbar.style.backgroundColor = "#00909b";
   }
