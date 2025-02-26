@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="ct-inside">
-                        Copyright © <time class="copy-time"></time>
+                        <p class="copy-text"></p>
                         <p>Desarrollado por <a href="https://portafolio-davidfcopozo.vercel.app" target="_blank" rel="noreferrer" style="text-decoration: none;">David Francisco</a> con ☕</p>
                     </div>
                 </div>

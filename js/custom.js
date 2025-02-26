@@ -432,11 +432,15 @@ function loadRecaptcha() {
 
 /************************************** COPYRIGTH DATE **************************************/
 let date = new Date(),
-  time = d.querySelector(".copy-time"),
+  time = d.createElement("time"),
+  text = d.querySelector(".copy-text"),
   year = date.getFullYear();
 
+time.classList.add("copy-time");
+text.textContent = "Copyright © ";
 time.textContent = year;
 time.setAttribute("datetime", year);
+text.appendChild(time);
 
 /************************************** SCHEDULE *************************************/
 
