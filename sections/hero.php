@@ -11,7 +11,7 @@
                         <div class="d-flex mx-auto my-5">
                             <?php
                             $text = "Matricúlate ya";
-                            $link = "contacto.php?message=Hola, quiero más información acerca de la matriculación.";
+                            $link = urlencode("contacto.php?message=Hola, quiero más información acerca de la matriculación.");
                             require "_partials/button.php"; ?>
                         </div>
                     </div>
