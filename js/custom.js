@@ -52,7 +52,7 @@ d.addEventListener("DOMContentLoaded", () => {
 
   const link = d.querySelector('a[href="' + page + '"]');
 
-  if (page !== "" && page !== "index.php") {
+  if (page !== "" && page !== "index.php" && link) {
     link.classList.add("active-page");
     link.ariaSelected = "true";
   }
