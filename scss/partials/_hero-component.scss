@@ -83,6 +83,39 @@
   }
 }
 
+.hero-content {
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+
+    @media (min-width: 576px) {
+      font-size: 26px;
+      line-height: 36px;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 30px;
+      line-height: 45px;
+    }
+
+    @media (min-width: 992px) {
+      font-size: 36px;
+      line-height: 50px;
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 42px;
+      line-height: 60px;
+    }
+  }
+}
+
+.special-element {
+  @media (max-width: 576px) {
+    display: none;
+  }
+}
+
 .services-page .title {
   visibility: hidden;
 }

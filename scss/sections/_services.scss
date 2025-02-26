@@ -16,7 +16,6 @@ $light-gray: #f0f0f0;
     }
   }
   background: {
-    image: url("./images/Featured.webp");
     position: center;
     repeat: no-repeat;
     size: contain;
@@ -108,8 +107,6 @@ $light-gray: #f0f0f0;
 // Media Queries
 @media (max-width: 991px) {
   .feature_part {
-    background-image: url("");
-
     &::after {
       display: none;
     }

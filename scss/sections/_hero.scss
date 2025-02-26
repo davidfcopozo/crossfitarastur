@@ -25,10 +25,10 @@ $font-primary: "Roboto", sans-serif;
 
     @media (max-width: 767px) {
       min-height: 100vh;
-      background-attachment: scroll; // Remove fixed attachment on mobile
+      background-attachment: scroll;
       background-position: center center;
       height: auto;
-      padding: 100px 0; // Add padding instead of fixed height
+      padding: 100px 0;
     }
   }
 
