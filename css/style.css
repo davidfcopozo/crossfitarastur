@@ -14,6 +14,78 @@ body {
   padding: 0;
 }
 
+/* bebas-neue-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/bebas-neue-v14-latin-regular.woff2") format("woff2");
+}
+/* montserrat-100 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/montserrat-v29-latin-100.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-200 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/montserrat-v29-latin-200.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/montserrat-v29-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/montserrat-v29-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/montserrat-v29-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/montserrat-v29-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/montserrat-v29-latin-800.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-900 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/montserrat-v29-latin-900.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 h1,
 h2,
 h3,
@@ -366,7 +438,7 @@ Footer Section
   font-size: 0.9em;
   margin-bottom: 32px;
 }
-.footer-section .footer-logo-item .social-links h6 {
+.footer-section .footer-logo-item .social-links h2 {
   color: #ffffff;
   font-weight: 500;
   text-transform: uppercase;
@@ -390,7 +462,7 @@ Footer Section
 .footer-section .footer-widget {
   margin-bottom: 30px;
 }
-.footer-section .footer-widget h5 {
+.footer-section .footer-widget h2 {
   font-size: 20px;
   font-weight: 500;
   color: #ffffff;
@@ -401,10 +473,10 @@ Footer Section
   display: block;
   margin-bottom: 20px;
 }
-.footer-section .footer-widget .footer-blog .fb-item:hover h6 {
+.footer-section .footer-widget .footer-blog .fb-item:hover h3 {
   color: var(--brand-color);
 }
-.footer-section .footer-widget .footer-blog .fb-item h6 {
+.footer-section .footer-widget .footer-blog .fb-item h3 {
   color: #ffffff;
   text-transform: uppercase;
   margin-bottom: 0.2em;
@@ -719,6 +791,7 @@ Footer Section
   user-select: none;
   font-size: 13px;
   margin-inline: auto;
+  letter-spacing: 2px;
 }
 .fancy::before {
   content: " ";
@@ -1014,7 +1087,7 @@ Footer Section
   }
 }
 .hero-section .hero-bg {
-  background-image: url(../images/header-bg.webp);
+  background-image: url(../images/new-bg.webp);
 }
 @media (max-width: 767px) {
   .hero-section .hero-bg {
@@ -1034,7 +1107,7 @@ Footer Section
   text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 }
 .hero-section .hero-content p {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--seondary-font);
   font-size: 1rem;
   color: #a1a1a1;
   font-weight: 400;
@@ -1051,7 +1124,7 @@ Footer Section
   }
 }
 .hero-section .btn-action {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--seondary-font);
   background-color: #009091;
   border-radius: 0;
   color: #ffffff;
@@ -1154,7 +1227,7 @@ Footer Section
   color: #fff !important;
 }
 .feature_part p {
-  font-family: "roboto", sans-serif;
+  font-family: var(--secondar-font);
 }
 .feature_part::after {
   position: absolute;
@@ -1350,7 +1423,7 @@ Footer Section
   color: #ffffff;
   text-transform: uppercase;
 }
-.blog-item .blog-text h5 {
+.blog-item .blog-text h3 {
   font-size: 20px;
   color: #ffffff;
   font-weight: 500;
@@ -1380,7 +1453,7 @@ Footer Section
 .blog-item.instagram-item .instagram-text .categories p {
   margin: 0 !important;
 }
-.blog-item.instagram-item .instagram-text h5 {
+.blog-item.instagram-item .instagram-text h3 {
   font-size: 20px;
   color: #ffffff;
   font-weight: 500;
@@ -1492,7 +1565,7 @@ Footer Section
   transform: translate3d(0px, -5px, 0px);
   color: var(--brand-color);
 }
-.team3 h5 {
+.team3 h3 {
   line-height: 22px;
   font-size: 18px;
 }
@@ -1838,7 +1911,7 @@ Footer Section
 }
 .privacy-policy p,
 .privacy-policy dd {
-  font-family: roboto, sans-serif;
+  font-family: var(--seondary-font);
 }
 
 .main .blog-section .btn-action {
@@ -1849,6 +1922,7 @@ Footer Section
 
 .main .hero-section .fancy {
   background-color: var(--brand-color) !important;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 }
 .main .hero-section .fancy::before {
   background: white !important;
