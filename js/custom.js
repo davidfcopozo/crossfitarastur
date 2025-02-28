@@ -199,7 +199,7 @@ const galleryItems = [
     image: "crossfit_arastur_primera_clase.webp",
     category: "Crossfit y Principiantes",
     title: "¿Cómo afrontar mi primera clase de crossfit?",
-    link: "como-afrontar-primera-clase-de-crossfit.php",
+    link: "blog/como-afrontar-primera-clase-de-crossfit.php",
     date: "2/15/2025",
   },
   {
@@ -215,7 +215,7 @@ const galleryItems = [
     image: "blog-4.webp",
     category: "Hostoria & Crossfit",
     title: "Orígenes del Crossfit",
-    link: "origenes-del-crossfit.php",
+    link: "blog/origenes-del-crossfit.php",
     date: "2/15/2025",
   },
   {
@@ -223,7 +223,7 @@ const galleryItems = [
     image: "crossfit-history.webp",
     category: "Crossfit & Nomenclaturas del Crossfit",
     title: "WOD, box, AMRAP, Time cap… ¿qué quieren decir estas palabras?",
-    link: "que-son-wod-box-amrap-time-cap.php",
+    link: "blog/que-son-wod-box-amrap-time-cap.php",
     date: "2/15/2025",
   },
 ];
