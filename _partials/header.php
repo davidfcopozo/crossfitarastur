@@ -208,7 +208,6 @@ $noIndex = isset($noIndex) ? $noIndex : false;
             "wordCount" => (string)$wordCount
         ];
 
-        // Encode the schema markup as JSON-LD
         $jsonLd = json_encode($schemaMarkup, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
         echo "<script type=\"application/ld+json\">\n";
