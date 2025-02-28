@@ -26,7 +26,7 @@ require "_partials/header.php";
             </div>
 
             <div class="post-content">
-                <h1>¿Cómo afrontar mi primera clase de crossfit?</h1>
+                <h1>Orígenes del Crossfit</h1>
                 <p>Aunque en España apenas conocemos este deporte desde hace 10 años, no es una moda reciente, ya que su origen está en los años 70 en California (EEUU).</p>
                 <p>Greg Glassman fue su creador, cuando decidió comenzar a desarrollar un entrenamiento funcional con el fin de mejorar la condición física de una forma más eficaz. Así, en 1995 abrió el primer centro de entrenamiento, y poco después fue extendiendo esta idea a profesionales, como el departamento de policía de Santa Cruz.</p>
                 <p> En el año 2000 fundó la marca CrossFit Inc junto a la que fue su mujer, y actualmente, casi 20 años después, podemos encontrar boxes de CrossFit repartidos por todo el mundo, cuenta con entrenadores de diferentes niveles y especialidades dentro de la disciplina deportiva (kids, strongman, gymnastics…), con sus propios campeonatos del mundo (CrossFit Games), y con una línea de desarrollo fundamental denominada CrossFit Health, donde podemos comprobar que el objetivo final de este deporte es mejorar la condición física y la salud de las personas, en busca de una mejor calidad de vida.</p>
