@@ -1,5 +1,5 @@
 <?php
-$postMetaData = ["date" => "2/15/2025", "author" => "Iván Santurio", "categories" => ["Crossfit", "Historia"], "keywords" => [
+$postMetaData = ["date" => "2/15/2025", "author" => "Iván Santurio", "author_avatar" => "ivan_santurio.webp", "categories" => ["Crossfit", "Historia"], "keywords" => [
     "Orígenes del CrossFit",
     "Historia del CrossFit",
     "Greg Glassman",
@@ -20,7 +20,7 @@ $postMetaData = ["date" => "2/15/2025", "author" => "Iván Santurio", "categorie
     "Gimnasia en CrossFit",
     "Departamento de policía Santa Cruz",
     "Desarrollo del CrossFit"
-], "description" => "Conoce los orígenes del CrossFit, desde su creación en los años 70 por Greg Glassman hasta su expansión mundial. Descubre cómo este deporte mejora la condición física y la calidad de vida. ¡Explora la historia del CrossFit aquí!"];
+], "description" => "Conoce los orígenes del CrossFit, desde su creación en los años 70 por Greg Glassman hasta su expansión mundial. Descubre cómo este deporte mejora la condición física y la calidad de vida. ¡Explora la historia del CrossFit aquí!", "img" => "origenes-del-crossfit.webp", "slug" => "origenes-del-crossfit"];
 $title = "Orígenes del Crossfit | Crossfit Arastur";
 require __DIR__ . "/../_partials/header.php";
 ?>
@@ -28,7 +28,7 @@ require __DIR__ . "/../_partials/header.php";
     <article class="post">
         <div class="featured-image-container">
             <div class="featured-image">
-                <img src="../images/blog-4.webp" alt="Cuerda o soga para hacer ejercicios en el piso">
+                <img src="../images/origenes-del-crossfit.webp" alt="Cuerda o soga para hacer ejercicios en el piso">
             </div>
         </div>
         </div>
