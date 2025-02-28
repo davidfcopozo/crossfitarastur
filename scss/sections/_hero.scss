@@ -4,7 +4,6 @@ $secondary-color: #3f51b5;
 $text-dark: #262626;
 $text-light: #a1a1a1;
 $white: #ffffff;
-$font-primary: "Roboto", sans-serif;
 
 // Mixins
 @mixin transition($time: 200ms) {
@@ -33,7 +32,7 @@ $font-primary: "Roboto", sans-serif;
   }
 
   .hero-bg {
-    background-image: url(../images/header-bg.webp);
+    background-image: url(../images/new-bg.webp);
 
     @media (max-width: 767px) {
       background-position: center center;
@@ -55,7 +54,7 @@ $font-primary: "Roboto", sans-serif;
     }
 
     p {
-      font-family: $font-primary;
+      font-family: var(--seondary-font);
       font-size: 1rem;
       color: $text-light;
       font-weight: 400;
@@ -75,7 +74,7 @@ $font-primary: "Roboto", sans-serif;
 
   // Button Styles
   .btn-action {
-    font-family: $font-primary;
+    font-family: var(--seondary-font);
     background-color: $primary-color;
     border-radius: 0;
     color: $white;

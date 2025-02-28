@@ -28,7 +28,7 @@ $light-gray: #f0f0f0;
   }
 
   p {
-    font-family: "roboto", sans-serif;
+    font-family: var(--secondar-font);
   }
 
   &::after {
