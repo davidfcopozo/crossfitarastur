@@ -1,5 +1,5 @@
 <?php
-$postMetaData = ["date" => "2/15/2025", "author" => "Marta Puchan", "categories" => ["Crossfit", "Principiante"], "keywords" => [
+$postMetaData = ["date" => "2/15/2025", "author" => "Marta Puchan", "author_avatar" => "marta_puchan.webp", "categories" => ["Crossfit", "Principiante"], "keywords" => [
     "CrossFit Zaragoza",
     "Primera clase de CrossFit",
     "Consejos para principiantes",
@@ -20,7 +20,7 @@ $postMetaData = ["date" => "2/15/2025", "author" => "Marta Puchan", "categories"
     "Experiencia en CrossFit",
     "Pedir cita CrossFit",
     "Motivación para entrenar"
-], "description" => "Descubre cómo afrontar tu primera clase de CrossFit en Zaragoza con energía y motivación. Consejos para principiantes, la importancia de los entrenadores y todo lo que necesitas saber para empezar. ¡Te esperamos en CrossFit Arastur!"];
+], "description" => "Descubre cómo afrontar tu primera clase de CrossFit en Zaragoza con energía y motivación. Consejos para principiantes, la importancia de los entrenadores y todo lo que necesitas saber para empezar. ¡Te esperamos en CrossFit Arastur!", "img" => "como-afrontar-primera-clase-de-crossfit.webp"];
 $title = "¿Cómo afrontar mi primera clase de crossfit? | Crossfit Arastur";
 require __DIR__ . "/../_partials/header.php";
 ?>
@@ -29,7 +29,7 @@ require __DIR__ . "/../_partials/header.php";
         <div class="featured-image-container">
             <div class="featured-image">
 
-                <img src="../images/crossfit_arastur_primera_clase.webp" alt="Chica de espalda supervisando clase de crossfit">
+                <img src="/../images/como-afrontar-primera-clase-de-crossfit.webp" alt="Chica de espalda supervisando clase de crossfit">
             </div>
         </div>
         </div>
