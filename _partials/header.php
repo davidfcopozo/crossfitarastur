@@ -1,5 +1,8 @@
 <?php
 require __DIR__ . "/../config.php";
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+$baseUrl = $protocol . "://" . $_SERVER['HTTP_HOST'] . "/";
+$uri = isset($_SERVER["REQUEST_URI"]) ?? $_SERVER["REQUEST_URI"];
 $noIndex = isset($noIndex) ? $noIndex : false;
 ?>
 <!DOCTYPE html>
@@ -164,9 +167,6 @@ $noIndex = isset($noIndex) ? $noIndex : false;
         // Convert date to ISO format (YYYY-MM-DD)
         $isoDate = DateTime::createFromFormat('m/d/Y', $postMetaData['date'])->format('Y-m-d');
 
-        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
-        $baseUrl = $protocol . "://" . $_SERVER['HTTP_HOST'] . "/";
-
         $wordCount = 0;
         if (isset($postMetaData['content'])) {
             $wordCount = str_word_count(strip_tags($postMetaData['content']));
@@ -215,7 +215,17 @@ $noIndex = isset($noIndex) ? $noIndex : false;
         echo "\n</script>\n";
     }
     ?>
-
+    <meta property="og:title" content="<?php echo htmlspecialchars($title); ?>">
+    <meta property="og:description" content="<?php
+                                                if (isset($postMetaData["description"])) {
+                                                    echo htmlspecialchars($postMetaData["description"]);
+                                                } else {
+                                                    echo "CrossFit Arastur es el único box de Aragón que cuenta con un servicio de readaptación deportiva integrado en el centro.";
+                                                }
+                                                ?>">
+    <meta property="og:image" content="<?php echo htmlspecialchars($baseUrl . "images/" . (isset($postMetaData['img']) ? $postMetaData['img'] : "logo.webp")); ?>">
+    <meta property="og:url" content="<?php echo htmlspecialchars($baseUrl . $uri); ?>">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="//clickiocmp.com">
     <link rel="dns-prefetch" href="//clickiocmp.com">
     <title><?php echo $title; ?></title>
