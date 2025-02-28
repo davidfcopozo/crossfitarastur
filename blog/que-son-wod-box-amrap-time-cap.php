@@ -20,7 +20,7 @@ $postMetaData = ["date" => "2/15/2025", "author" => "Iván Santurio", "author_av
     "Ritmo en CrossFit",
     "Medir rendimiento CrossFit",
     "Programación de entrenamientos CrossFit"
-], "description" => "¿Qué significan WOD, box, AMRAP o time cap en CrossFit? Te explicamos la nomenclatura universal de este deporte y los formatos de entrenamiento más comunes. ¡Aprende a entender el lenguaje del CrossFit!", "img" => "que-son-wod-box-amrap-time-cap.webp",, "slug" => "que-son-wod-box-amrap-time-cap"];
+], "description" => "¿Qué significan WOD, box, AMRAP o time cap en CrossFit? Te explicamos la nomenclatura universal de este deporte y los formatos de entrenamiento más comunes. ¡Aprende a entender el lenguaje del CrossFit!", "img" => "que-son-wod-box-amrap-time-cap.webp", "slug" => "que-son-wod-box-amrap-time-cap"];
 $title = "WOD, box, AMRAP, Time cap… ¿qué quieren decir estas palabras? | Crossfit Arastur";
 require __DIR__ . "/../_partials/header.php";
 ?>
