@@ -1,44 +1,52 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-		<!--	created with www.mysitemapgenerator.com	-->
-		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-	<loc>http://crossfitarastur.infinityfreeapp.com/</loc>
-	<lastmod>2025-02-26T10:41:50+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://powderblue-parrot-507586.hostingersite.com/</loc>
+  <lastmod>2025-02-28T21:41:37+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-	<loc>http://crossfitarastur.infinityfreeapp.com/servicios</loc>
-	<lastmod>2025-02-26T10:41:50+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://powderblue-parrot-507586.hostingersite.com/servicios</loc>
+  <lastmod>2025-02-28T21:41:37+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://crossfitarastur.infinityfreeapp.com/blog</loc>
-	<lastmod>2025-02-26T10:41:50+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://powderblue-parrot-507586.hostingersite.com/blog</loc>
+  <lastmod>2025-02-28T21:41:37+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://crossfitarastur.infinityfreeapp.com/horarios-y-tarifas</loc>
-	<lastmod>2025-02-26T10:41:51+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://powderblue-parrot-507586.hostingersite.com/horarios-y-tarifas</loc>
+  <lastmod>2025-02-28T21:41:37+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://crossfitarastur.infinityfreeapp.com/contacto</loc>
-	<lastmod>2025-02-26T10:41:51+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://powderblue-parrot-507586.hostingersite.com/contacto</loc>
+  <lastmod>2025-02-28T21:41:37+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://crossfitarastur.infinityfreeapp.com/blog/como-afrontar-primera-clase-de-crossfit</loc>
-	<lastmod>2025-02-26T10:41:51+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://powderblue-parrot-507586.hostingersite.com/blog/como-afrontar-primera-clase-de-crossfit</loc>
+  <lastmod>2025-02-28T21:41:37+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-	<loc>http://crossfitarastur.infinityfreeapp.com/origenes-del-crossfit</loc>
-	<lastmod>2025-02-26T10:41:51+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://powderblue-parrot-507586.hostingersite.com/blog/origenes-del-crossfit</loc>
+  <lastmod>2025-02-28T21:41:37+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-	<loc>http://crossfitarastur.infinityfreeapp.com/que-son-wod-box-amrap-time-cap</loc>
-	<lastmod>2025-02-26T10:41:51+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://powderblue-parrot-507586.hostingersite.com/blog/que-son-wod-box-amrap-time-cap</loc>
+  <lastmod>2025-02-28T21:41:37+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
+
+
 </urlset>
