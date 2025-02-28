@@ -7,7 +7,12 @@ $noIndex = isset($noIndex) ? $noIndex : false;
 
 <head>
     <meta charset="UTF-8" />
-    <script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Remove the direct GA script loading -->
+    <!-- <script src="https://www.googletagmanager.com/gtag/js?id=G-ZBQ25EFQXD" async></script> -->
+
+    <script defer>
         // Defer Clickio loading
         window.addEventListener('load', function() {
             setTimeout(function() {
@@ -17,60 +22,129 @@ $noIndex = isset($noIndex) ? $noIndex : false;
                 document.body.appendChild(script);
             }, 3000);
         });
-    </script>
-    <script src="https://www.googletagmanager.com/gtag/js?id=G-ZBQ25EFQXD" async></script>
 
-    <script>
+        // Setup dataLayer globally
         window.dataLayer = window.dataLayer || [];
 
+        // Initialize GA with consent mode
         function gtag() {
             dataLayer.push(arguments);
         }
-        gtag('js', new Date());
+        window.gtag = gtag;
 
-        // Default: Block GA until consent is given
+        // Initialize GA in consent mode (no cookies until consent)
+        gtag('js', new Date());
         gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied'
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied'
+        });
+        gtag('config', 'G-ZEF11W329M', {
+            'send_page_view': false
         });
 
-        // Wait for Clickio consent
-        function updateConsent() {
+        // Function to load Google Analytics
+        function loadGoogleAnalytics() {
+            if (!document.getElementById('ga-script')) {
+                console.log('Loading Google Analytics script');
+                // Create and load the GA script
+                var gaScript = document.createElement('script');
+                gaScript.id = 'ga-script';
+                gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZEF11W329M';
+                gaScript.async = true;
+                document.head.appendChild(gaScript);
+
+                // Send initial pageview after script loads
+                gaScript.onload = function() {
+                    console.log('GA script loaded, updating consent and sending pageview');
+                    updateConsentState();
+                };
+            } else {
+                updateConsentState();
+            }
+        }
+
+        // Update consent state based on user choice
+        function updateConsentState() {
             let consentData = localStorage.getItem("lxGconsent__v2");
             if (consentData) {
-                consentData = JSON.parse(consentData);
-                if (consentData && consentData.cls_val) {
-                    let consentArray = consentData.cls_val.split("|");
-                    if (consentArray.length > 14) {
-                        let consentFlags = consentArray[14].split("").map(e => e - 0);
-                        let analyticsGranted = consentFlags[1] === 1;
+                try {
+                    consentData = JSON.parse(consentData);
+                    if (consentData && consentData.cls_val) {
+                        let consentArray = consentData.cls_val.split("|");
+                        if (consentArray.length > 14) {
+                            let consentFlags = consentArray[14].split("").map(e => e - 0);
+                            let analyticsGranted = consentFlags[1] === 1;
 
-                        let consentObj = {
-                            'ad_storage': consentFlags[0] ? "granted" : "denied",
-                            'analytics_storage': analyticsGranted ? "granted" : "denied"
-                        };
+                            console.log('Analytics consent:', analyticsGranted ? 'granted' : 'denied');
 
-                        // Update GA consent
-                        gtag("consent", "update", consentObj);
+                            // Update consent state
+                            gtag('consent', 'update', {
+                                'analytics_storage': analyticsGranted ? 'granted' : 'denied'
+                            });
 
-                        // Only initialize GA if analytics is granted
-                        if (analyticsGranted) {
-                            gtag('config', 'G-ZBQ25EFQXD');
+                            // Send pageview if consent granted
+                            if (analyticsGranted) {
+                                console.log('Sending pageview');
+                                gtag('config', 'G-ZEF11W329M', {
+                                    'send_page_view': true
+                                });
+                            }
                         }
                     }
+                } catch (e) {
+                    console.error("Error parsing consent data", e);
                 }
             }
         }
 
-        // Run consent check after page loads
-        window.addEventListener("load", updateConsent);
+        // Check Clickio consent status
+        function checkConsentStatus() {
+            let consentData = localStorage.getItem("lxGconsent__v2");
+            if (consentData) {
+                if (!document.getElementById('ga-script')) {
+                    loadGoogleAnalytics();
+                } else {
+                    updateConsentState();
+                }
+            }
+        }
+
+        // Load GA script immediately but in consent mode
+        loadGoogleAnalytics();
+
+        // Watch for changes in localStorage for consent updates
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'lxGconsent__v2') {
+                console.log('Consent changed, checking status');
+                checkConsentStatus();
+            }
+        });
+
+        // Check on page load
+        window.addEventListener('load', checkConsentStatus);
+
+        // Create a custom event for Clickio consent manager
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'consent_update') {
+                console.log('Consent update message received');
+                checkConsentStatus();
+            }
+        });
+
+        // Also check periodically (Clickio might update without storage event)
+        setInterval(checkConsentStatus, 2000);
+
+        // Add a global function that can be called from Clickio CMP
+        window.updateAnalyticsConsent = function() {
+            console.log('Manual consent update requested');
+            checkConsentStatus();
+        };
     </script>
     <?php if ($noIndex): ?>
         <meta name="robots" content="noindex, nofollow">
     <?php endif; ?>
     <link rel="preconnect" href="//clickiocmp.com">
     <link rel="dns-prefetch" href="//clickiocmp.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $title; ?></title>
     <link rel="icon" href="favicon.ico" type="image/png" />
     <meta
@@ -80,20 +154,13 @@ $noIndex = isset($noIndex) ? $noIndex : false;
         name="keywords"
         content="readaptacion deportiva, entrenamientos personales, CrossFit, ejercicios funcionales, box, RX, escalado, salud, crossfit zaragoza, crossfit aragon, be cool crossfit zaragoza, becool crossfit zaragoza, box crossfit zaragoza, cross fit zaragoza, crossfit en zaragoza, crossfit eolo zaragoza, crossfit hiberus zaragoza, crossfit reebok zaragoza,crossfit rocalla zaragoza, crossfit zaragoza centro, crossfit zaragoza las fuentes, crossfit zaragoza precio, crossfit zgz, gimnasio crossfit zaragoza, hammerbox zaragoza, kronos crossfit zaragoza, reebok crossfit zaragoza, zaragoza crossfit" />
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!--  <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <script src="js/bootstrap.min.js" defer></script>
     <!-- FONTS -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
-        rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-        rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="fonts/bebas-neue-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/montserrat-v29-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     <script
         src="https://kit.fontawesome.com/a163031abf.js"
         crossorigin="anonymous" defer></script>
@@ -101,10 +168,9 @@ $noIndex = isset($noIndex) ? $noIndex : false;
     <link
         href="css/style.min.css"
         rel="stylesheet"
-        type="text/css"
-        media="all" />
-    <!-- <script type="text/javascript" src="js/custom.min.js" defer></script> -->
-    <script type="text/javascript" src="js/custom.js" defer></script>
+        type="text/css" />
+    <script type="text/javascript" src="js/custom.min.js" defer></script>
+    <!--   <script type="text/javascript" src="js/custom.js" defer></script> -->
 
 </head>
 
@@ -130,18 +196,18 @@ $noIndex = isset($noIndex) ? $noIndex : false;
                     id="navbarCollapse">
                     <ul class="navbar-nav text-white">
                         <li class="nav-item">
-                            <a class="nav-link " href="servicios.php">Servicios</a>
+                            <a class="nav-link " href="servicios.php" area-label="Servicios">Servicios</a>
                         </li>
                         <li class="nav-item">
                             <a
                                 class="nav-link"
-                                href="blog.php">Blog</a>
+                                href="blog.php" area-label="Blog">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="horarios-y-tarifas.php">Horarios & Tarifas</a>
+                            <a class="nav-link" href="horarios-y-tarifas.php" area-label="Horarios & Tarifas">Horarios & Tarifas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="contacto.php">Contacto</a>
+                            <a class="nav-link " href="contacto.php" area-label="Contacto">Contacto</a>
                         </li>
                     </ul>
                 </div>
