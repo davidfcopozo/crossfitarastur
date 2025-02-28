@@ -8,10 +8,6 @@ $noIndex = isset($noIndex) ? $noIndex : false;
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Remove the direct GA script loading -->
-    <!-- <script src="https://www.googletagmanager.com/gtag/js?id=G-ZBQ25EFQXD" async></script> -->
-
     <script defer>
         // Defer Clickio loading
         window.addEventListener('load', function() {
@@ -142,6 +138,9 @@ $noIndex = isset($noIndex) ? $noIndex : false;
     </script>
     <?php if ($noIndex): ?>
         <meta name="robots" content="noindex, nofollow">
+    <?php endif; ?>
+    <?php if (isset($postMetaData["author"])): ?>
+        <meta name="author" content="<?php echo $postMetaData["author"]; ?>">
     <?php endif; ?>
     <link rel="preconnect" href="//clickiocmp.com">
     <link rel="dns-prefetch" href="//clickiocmp.com">
