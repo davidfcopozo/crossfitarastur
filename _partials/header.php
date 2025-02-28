@@ -238,6 +238,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
     <!-- FONTS -->
     <link rel="preload" href="/fonts/bebas-neue-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/montserrat-v29-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <script src="/js/custom.min.js" defer></script>
     <script
         src="https://kit.fontawesome.com/a163031abf.js"
         crossorigin="anonymous" defer></script>
@@ -247,7 +248,6 @@ $noIndex = isset($noIndex) ? $noIndex : false;
         rel="stylesheet"
         type="text/css" />
 
-    <script src="/js/custom.min.js" defer></script>
 
 
 </head>
@@ -279,7 +279,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
                         <li class="nav-item">
                             <a
                                 class="nav-link"
-                                href="blog.php" area-label="Blog">Blog</a>
+                                href="/blog" area-label="Blog">Blog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="horarios-y-tarifas.php" area-label="Horarios & Tarifas">Horarios & Tarifas</a>
