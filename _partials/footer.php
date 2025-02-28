@@ -11,7 +11,7 @@
                         programaciones que comenzó en 2016, y que ha ayudado a deportistas
                         de diferentes niveles repartidos por toda España.<br />
                     <div class="social-links">
-                        <h6>Síguenos</h6>
+                        <h2>Síguenos</h2>
                         <a href="https://www.instagram.com/crossfitarastur" target="_blank" title="Instagram">
                             <i class="fa fa-instagram"></i>
                         </a>
@@ -23,14 +23,14 @@
             </div>
             <div class="col-lg-3 offset-lg-1">
                 <div class="footer-widget">
-                    <h5>Nuestro Blog</h5>
+                    <h2>Nuestro Blog</h2>
                     <div class="footer-blog">
                     </div>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="footer-widget">
-                    <h5>Obtener información </h5>
+                    <h2>Obtener información </h2>
                     <ul class="footer-info">
                         <li>
                             <i class="fa fa-phone"></i>
@@ -59,7 +59,7 @@
             </div>
             <div class="col-lg-2">
                 <div class="footer-widget">
-                    <h5>Privacidad</h5>
+                    <h2>Privacidad</h2>
                     <ul class="workout-program">
                         <li>
                             <a href="politica-de-privacidad.php">Política de privacidad</a>
@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="ct-inside">
-                        <p class="copy-text"></p>
+                        <p class="copy-text"> <!-- <time class="copy-time"></time> --></p>
                         <p>Desarrollado por <a href="https://portafolio-davidfcopozo.vercel.app" target="_blank" rel="noreferrer" style="text-decoration: none;">David Francisco</a> con ☕</p>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
 </footer>
 
 <!-- Whatsapp icon -->
-<a id="whatsapp-icon" class="whatsapp-icon" href="https://wa.me/+34649238717" target="_blank">
+<a id="whatsapp-icon" class="whatsapp-icon" href="https://wa.me/+34649238717" target="_blank" aria-label="Enlace a chat en WhatsApp">
     <i class="fa-brands fa-whatsapp fa-lg" style="color: #ffffff;"></i>
 </a>
 
