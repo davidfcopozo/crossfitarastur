@@ -1,5 +1,26 @@
 <?php
-$postMetaData = ["date" => "2/15/2025", "author" => "Marta Puchan", "categories" => ["Crossfit", "Principiante"]];
+$postMetaData = ["date" => "2/15/2025", "author" => "Marta Puchan", "categories" => ["Crossfit", "Principiante"], "keywords" => [
+    "CrossFit Zaragoza",
+    "Primera clase de CrossFit",
+    "Consejos para principiantes",
+    "Entrenadores de CrossFit",
+    "Energía y motivación",
+    "Nervios primera clase",
+    "Adaptación al CrossFit",
+    "Ropa deportiva CrossFit",
+    "Zapatillas CrossFit",
+    "CrossFit Arastur",
+    "Entrenamiento intenso",
+    "Inicio suave en CrossFit",
+    "Condición física inicial",
+    "Deporte en Zaragoza",
+    "Estímulos de entrenamiento",
+    "Superar incertidumbre",
+    "Clases adaptadas",
+    "Experiencia en CrossFit",
+    "Pedir cita CrossFit",
+    "Motivación para entrenar"
+]];
 $title = "¿Cómo afrontar mi primera clase de crossfit? | Crossfit Arastur";
 require "_partials/header.php";
 ?>
