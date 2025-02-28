@@ -22,7 +22,7 @@ $postMetaData = ["date" => "2/15/2025", "author" => "Iván Santurio", "categorie
     "Programación de entrenamientos CrossFit"
 ], "description" => "¿Qué significan WOD, box, AMRAP o time cap en CrossFit? Te explicamos la nomenclatura universal de este deporte y los formatos de entrenamiento más comunes. ¡Aprende a entender el lenguaje del CrossFit!"];
 $title = "WOD, box, AMRAP, Time cap… ¿qué quieren decir estas palabras? | Crossfit Arastur";
-require "_partials/header.php";
+require __DIR__ . "/../_partials/header.php";
 ?>
 <main class="services-page main app form" id="main">
     <article class="post">
@@ -66,4 +66,4 @@ require "_partials/header.php";
     </article>
 </main>
 
-<?php require "_partials/footer.php"; ?>
+<?php require __DIR__ . "/../_partials/footer.php"; ?>

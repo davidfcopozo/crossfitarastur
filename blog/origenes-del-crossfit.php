@@ -22,7 +22,7 @@ $postMetaData = ["date" => "2/15/2025", "author" => "Iván Santurio", "categorie
     "Desarrollo del CrossFit"
 ], "description" => "Conoce los orígenes del CrossFit, desde su creación en los años 70 por Greg Glassman hasta su expansión mundial. Descubre cómo este deporte mejora la condición física y la calidad de vida. ¡Explora la historia del CrossFit aquí!"];
 $title = "Orígenes del Crossfit | Crossfit Arastur";
-require "_partials/header.php";
+require __DIR__ . "/../_partials/header.php";
 ?>
 <main class="services-page main app form" id="main">
     <article class="post">
@@ -62,4 +62,4 @@ require "_partials/header.php";
     </article>
 </main>
 
-<?php require "_partials/footer.php"; ?>
+<?php require __DIR__ . "/../_partials/footer.php"; ?>
