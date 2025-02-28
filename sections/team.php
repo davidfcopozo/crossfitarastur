@@ -11,7 +11,7 @@
         <div class="row justify-content-center space-x-4 px-2 px-md-4">
             <!-- column  -->
 
-            <div class="team-member col-md-6 col-lg-4 mb-4 flex flex-column justify-content-between row me-4">
+            <div class="team-member col-md-6 col-lg-4 mb-4 flex flex-column justify-content-between row me-4 pt-4">
                 <!-- Row -->
                 <div>
                     <div class="col-md-12 d-flex">
@@ -22,14 +22,14 @@
                     </div>
                     <div class="col-md-12">
                         <div class="pt-2">
-                            <h5 class="mt-4 font-weight-medium mb-0 text-center">
+                            <h3 class="mt-4 font-weight-medium mb-0 text-center">
                                 IVÁN SANTURIO
-                            </h5>
-                            <h6 class="subtitle text-center">
+                            </h3>
+                            <h4 class="subtitle text-center">
                                 OWNER y HEAD COACH de CrossFit Arastur, fundador de la
                                 marca Built By Odin de programaciones personalizadas de
                                 CrossFit. CrossFit L1.
-                            </h6>
+                            </h4>
 
                         </div>
                     </div>
@@ -42,24 +42,19 @@
                 </div>
                 <ul class="list-inline">
                     <li class="list-inline-item">
-                        <a href="#" class="text-decoration-none d-block px-1">
+                        <a href="https://www.facebook.com/p/CrossFit-Arastur-100027126532385/?locale=es_ES" class="text-decoration-none d-block px-1" target="_blank" aria-label="Enlace a la cuenta de Facebook">
                             <i class="fa fa-facebook"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" class="text-decoration-none d-block px-1">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="text-decoration-none d-block px-1">
+                        <a href="https://www.instagram.com/crossfitarastur" class="text-decoration-none d-block px-1" target="_blank" aria-label="Enlace a la cuenta de Instagram">
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>
                 </ul>
                 <!-- Row -->
             </div>
-            <div class="team-member col-md-6 col-lg-4 mb-4 flex flex-column justify-content-between row">
+            <div class="team-member col-md-6 col-lg-4 mb-4 flex flex-column justify-content-between row pt-4">
                 <!-- Row -->
                 <div>
                     <div class="col-md-12 d-flex">
@@ -70,13 +65,13 @@
                     </div>
                     <div class="col-md-12">
                         <div class="pt-2">
-                            <h5 class="mt-4 font-weight-medium mb-0 text-center">
+                            <h3 class="mt-4 font-weight-medium mb-0 text-center">
                                 MARTA PUCHAN
-                            </h5>
-                            <h6 class="subtitle text-center">
+                            </h3>
+                            <h4 class="subtitle text-center">
                                 OWNER de CrossFit Arastur. Médica y traumatóloga
                                 deportiva. CrossFit L1 y L2.
-                            </h6>
+                            </h4>
 
                         </div>
                     </div>
@@ -87,17 +82,12 @@
                 </div>
                 <ul class="list-inline">
                     <li class="list-inline-item">
-                        <a href="#" class="text-decoration-none d-block px-1">
+                        <a href="https://www.facebook.com/p/CrossFit-Arastur-100027126532385/?locale=es_ES" class="text-decoration-none d-block px-1" target="_blank" aria-label="Enlace a la cuenta de Facebook">
                             <i class="fa fa-facebook"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" class="text-decoration-none d-block px-1">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="text-decoration-none d-block px-1">
+                        <a href="https://www.instagram.com/crossfitarastur" class="text-decoration-none d-block px-1" target="_blank" aria-label="Enlace a la cuenta de Instagram">
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>
