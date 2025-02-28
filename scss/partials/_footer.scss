@@ -34,7 +34,7 @@ Footer Section
       margin-bottom: 32px;
     }
     .social-links {
-      h6 {
+      h2 {
         color: #ffffff;
         font-weight: 500;
         text-transform: uppercase;
@@ -60,7 +60,7 @@ Footer Section
 
   .footer-widget {
     margin-bottom: 30px;
-    h5 {
+    h2 {
       font-size: 20px;
       font-weight: 500;
       color: #ffffff;
@@ -71,10 +71,10 @@ Footer Section
       .fb-item {
         display: block;
         margin-bottom: 20px;
-        &:hover h6 {
+        &:hover h3 {
           color: var(--brand-color);
         }
-        h6 {
+        h3 {
           color: #ffffff;
           text-transform: uppercase;
           margin-bottom: 0.2em;
