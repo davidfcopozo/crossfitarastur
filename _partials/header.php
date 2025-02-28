@@ -1,5 +1,5 @@
 <?php
-require "config.php";
+require __DIR__ . "/../config.php";
 $noIndex = isset($noIndex) ? $noIndex : false;
 ?>
 <!DOCTYPE html>
@@ -164,23 +164,23 @@ $noIndex = isset($noIndex) ? $noIndex : false;
     <link rel="icon" href="favicon.ico" type="image/png" />
 
 
-    <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <!--  <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-    <script src="js/bootstrap.min.js" defer></script>
+    <script src="/js/bootstrap.min.js" defer></script>
     <!-- FONTS -->
-    <link rel="preload" href="fonts/bebas-neue-regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/montserrat-v29-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/bebas-neue-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/montserrat-v29-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     <script
         src="https://kit.fontawesome.com/a163031abf.js"
         crossorigin="anonymous" defer></script>
     <!-- Resource style -->
     <link
-        href="css/style.min.css"
+        href="/css/style.min.css"
         rel="stylesheet"
         type="text/css" />
-    <script type="text/javascript" src="js/custom.min.js" defer></script>
-    <!--   <script type="text/javascript" src="js/custom.js" defer></script> -->
+
+    <script src="/js/custom.min.js" defer></script>
+
 
 </head>
 
@@ -189,7 +189,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <img src="images/logo.webp" alt="CrossFit Arastur" />
+                    <img src="/images/logo.webp" alt="CrossFit Arastur" />
                 </a>
                 <button
                     class="navbar-toggler"
