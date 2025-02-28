@@ -158,6 +158,65 @@ $noIndex = isset($noIndex) ? $noIndex : false;
         content="CossFit Arastur es el único box de Aragón que cuenta con un servicio de readaptación deportiva integrado en el centro." />';
     }
     ?>
+    <?php
+
+    if (!empty($postMetaData)) {
+        // Convert date to ISO format (YYYY-MM-DD)
+        $isoDate = DateTime::createFromFormat('m/d/Y', $postMetaData['date'])->format('Y-m-d');
+
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+        $baseUrl = $protocol . "://" . $_SERVER['HTTP_HOST'] . "/";
+
+        $wordCount = 0;
+        if (isset($postMetaData['content'])) {
+            $wordCount = str_word_count(strip_tags($postMetaData['content']));
+        }
+
+        $schemaMarkup = [
+            "@context" => "https://schema.org",
+            "@type" => "BlogPosting",
+            "headline" => $postMetaData['title'] ?? "¿Cómo afrontar tu primera clase de CrossFit en Zaragoza?",
+            "description" => $postMetaData['description'],
+            "datePublished" => $isoDate,
+            "author" => [
+                "@type" => "Person",
+                "name" => $postMetaData['author'],
+                "image" => $baseUrl . "images/" . ($postMetaData['author_avatar'] ?? "default-avatar.webp")
+            ],
+            "image" => [
+                "@type" => "ImageObject",
+                "url" => $baseUrl . "images/" . $postMetaData['img'],
+                "width" => "1200",
+                "height" => "630"
+            ],
+            "publisher" => [
+                "@type" => "Organization",
+                "name" => "CrossFit Arastur",
+                "logo" => [
+                    "@type" => "ImageObject",
+                    "url" => $baseUrl . "images/logo.webp",
+                    "width" => "600",
+                    "height" => "60"
+                ]
+            ],
+            "mainEntityOfPage" => [
+                "@type" => "WebPage",
+                "@id" => $baseUrl . ($postMetaData['slug'] ?? "blog")
+            ],
+            "keywords" => $postMetaData['keywords'],
+            "articleSection" => $postMetaData['categories'],
+            "wordCount" => (string)$wordCount
+        ];
+
+        // Encode the schema markup as JSON-LD
+        $jsonLd = json_encode($schemaMarkup, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+
+        echo "<script type=\"application/ld+json\">\n";
+        echo $jsonLd;
+        echo "\n</script>\n";
+    }
+    ?>
+
     <link rel="preconnect" href="//clickiocmp.com">
     <link rel="dns-prefetch" href="//clickiocmp.com">
     <title><?php echo $title; ?></title>
