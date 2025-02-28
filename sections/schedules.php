@@ -17,12 +17,12 @@
                     <!--Nav Button  -->
                     <nav>
                         <div class="week-days nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="nav-monday-tab" data-bs-toggle="tab" href="#nav-monday" role="tab" aria-controls="nav-monday" aria-selected="true">LUNES</a>
-                            <a class="nav-item nav-link" id="nav-tuesday-tab" data-bs-toggle="tab" href="#nav-tuesday" role="tab" aria-controls="nav-tuesday" aria-selected="false">MARTES</a>
-                            <a class="nav-item nav-link" id="nav-wednesday-tab" data-bs-toggle="tab" href="#nav-wednesday" role="tab" aria-controls="nav-wednesday" aria-selected="false">MIERCOLES</a>
-                            <a class="nav-item nav-link" id="nav-thursday-tab" data-bs-toggle="tab" href="#nav-thursday" role="tab" aria-controls="nav-thursday" aria-selected="false">JUEVES</a>
-                            <a class="nav-item nav-link" id="nav-friday-tab" data-bs-toggle="tab" href="#nav-friday" role="tab" aria-controls="nav-friday" aria-selected="false">VIERNES</a>
-                            <a class="nav-item nav-link" id="nav-saturday-tab" data-bs-toggle="tab" href="#nav-saturday" role="tab" aria-controls="nav-saturday" aria-selected="false">SÁBADO</a>
+                            <a class="nav-item nav-link active" id="nav-monday-tab" data-bs-toggle="tab" href="#nav-monday" role="tab" aria-controls="nav-monday">LUNES</a>
+                            <a class="nav-item nav-link" id="nav-tuesday-tab" data-bs-toggle="tab" href="#nav-tuesday" role="tab" aria-controls="nav-tuesday">MARTES</a>
+                            <a class="nav-item nav-link" id="nav-wednesday-tab" data-bs-toggle="tab" href="#nav-wednesday" role="tab" aria-controls="nav-wednesday">MIERCOLES</a>
+                            <a class="nav-item nav-link" id="nav-thursday-tab" data-bs-toggle="tab" href="#nav-thursday" role="tab" aria-controls="nav-thursday">JUEVES</a>
+                            <a class="nav-item nav-link" id="nav-friday-tab" data-bs-toggle="tab" href="#nav-friday" role="tab" aria-controls="nav-friday">VIERNES</a>
+                            <a class="nav-item nav-link" id="nav-saturday-tab" data-bs-toggle="tab" href="#nav-saturday" role="tab" aria-controls="nav-saturday">SÁBADO</a>
                         </div>
                     </nav>
                     <!--End Nav Button  -->
