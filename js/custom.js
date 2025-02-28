@@ -67,10 +67,7 @@ d.addEventListener("DOMContentLoaded", () => {
   });
   let path = window.location.pathname.split("/");
 
-  if (
-    path[path.length - 1] === "politica-de-privacidad.php" ||
-    path[path.length - 1] === "politica-de-privacidad"
-  ) {
+  if (path[path.length - 1] === "politica-de-privacidad.php") {
     const navbar = d.querySelector(".navbar");
     navbar.style.backgroundColor = "#00909b";
   }
@@ -92,7 +89,7 @@ d.addEventListener("DOMContentLoaded", () => {
 
   lazyLoadBackgroundImages();
 
-  window.addEventListener("unload", cleanup, { once: true });
+  window.addEventListener("pagehide", cleanup, { once: true });
 });
 
 function lazyLoadBackgroundImages() {
@@ -281,7 +278,7 @@ function createMasonryItems() {
         categoriesDiv.textContent = item.category;
       }
 
-      const heading = d.createElement("h5");
+      const heading = d.createElement("h3");
       heading.textContent = item.title;
 
       linkElement.appendChild(categoriesDiv);
@@ -596,86 +593,7 @@ async function fetchSheetData() {
 
 fetchSheetData();
 
-/************************************** FAQ ACCORDION **************************************/
 d.addEventListener("DOMContentLoaded", () => {
-  const details = d.querySelectorAll(".faq-item");
-
-  // Set initial styles for all answers
-  details.forEach((detail) => {
-    const answer = detail.querySelector(".faq-answer");
-    if (!detail.hasAttribute("open")) {
-      answer.style.opacity = "0";
-      answer.style.transform = "translateY(-10px)";
-    }
-  });
-
-  details.forEach((detail) => {
-    detail.addEventListener("click", (e) => {
-      if (e.target.tagName.toLowerCase() === "summary") {
-        e.preventDefault();
-
-        const clickedDetail = detail;
-        const clickedAnswer = clickedDetail.querySelector(".faq-answer");
-
-        // Close other details
-        details.forEach((otherDetail) => {
-          if (
-            otherDetail !== clickedDetail &&
-            otherDetail.hasAttribute("open")
-          ) {
-            const answer = otherDetail.querySelector(".faq-answer");
-            answer.style.opacity = "0";
-            answer.style.transform = "translateY(-10px)";
-
-            setTimeout(() => {
-              otherDetail.removeAttribute("open");
-            }, 400);
-          }
-        });
-
-        // Toggle current detail
-        if (clickedDetail.hasAttribute("open")) {
-          clickedAnswer.style.opacity = "0";
-          clickedAnswer.style.transform = "translateY(-10px)";
-
-          setTimeout(() => {
-            clickedDetail.removeAttribute("open");
-          }, 400);
-        } else {
-          clickedDetail.setAttribute("open", "");
-          // Force a reflow to trigger the transition
-          clickedAnswer.offsetHeight;
-          clickedAnswer.style.opacity = "1";
-          clickedAnswer.style.transform = "translateY(0)";
-        }
-      }
-    });
-
-    detail.querySelector("summary").addEventListener("keydown", (e) => {
-      const items = Array.from(details);
-      const index = items.indexOf(detail);
-
-      switch (e.key) {
-        case "ArrowUp":
-          e.preventDefault();
-          items[index - 1]?.querySelector("summary").focus();
-          break;
-        case "ArrowDown":
-          e.preventDefault();
-          items[index + 1]?.querySelector("summary").focus();
-          break;
-        case "Home":
-          e.preventDefault();
-          items[0].querySelector("summary").focus();
-          break;
-        case "End":
-          e.preventDefault();
-          items[items.length - 1]?.querySelector("summary").focus();
-          break;
-      }
-    });
-  });
-
   /************************************** SCROLL TO FORM **************************************/
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -707,14 +625,14 @@ dynamicGallery.forEach((post) => {
     let postDate = new Date(post.date);
 
     let link = d.createElement("a");
-    let h6 = d.createElement("h6");
+    let h3 = d.createElement("h3");
     let time = d.createElement("time");
     let span = d.createElement("span");
 
     link.classList.add("fb-item");
     link.href = post.link;
 
-    h6.textContent = post.title;
+    h3.textContent = post.title;
 
     time.dateTime = postDate;
 
@@ -724,7 +642,7 @@ dynamicGallery.forEach((post) => {
 
     span.appendChild(time);
 
-    link.appendChild(h6);
+    link.appendChild(h3);
     link.appendChild(span);
     footerBlog.appendChild(link);
   }
@@ -758,7 +676,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Clean up observer on unload
   window.addEventListener(
-    "unload",
+    "pagehide",
     () => {
       observer.disconnect();
     },
