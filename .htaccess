@@ -2,9 +2,9 @@ ErrorDocument 404 /404
 #RewriteEngine On
 
 RewriteEngine On
-<Directory /var/www/html>
-    AllowOverride All
-</Directory>
+# <Directory /var/www/html>
+#     AllowOverride All
+# </Directory>
 
 
 # Remove .html extension
@@ -56,7 +56,7 @@ RewriteRule ^blog[[:space:]]arastur[[:space:]]crossfit\.html$ /blog [R=301,L]
 <IfModule mod_headers.c>
     # Cache static assets (images, CSS, JS) for 30 days
     <FilesMatch "\.(jpg|jpeg|png|gif|css|js|ico|woff|woff2|ttf|svg|webp)$">
-        Header set Cache-Control "public, max-age=2592000, immutable"
+        Header set Cache-Control "public, max-age=2592000"
     </FilesMatch>
 </IfModule>
 
