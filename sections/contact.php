@@ -72,7 +72,7 @@
                 <div class="col-md-6">
                     <div class="map_container">
                         <div class="map-responsive">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.927459628159!2d-0.9904018237100229!3d41.63569938055576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd596919b60c9bdb%3A0x3f9bd97b33711d8!2sCrossFit%20Arastur!5e0!3m2!1ses!2ses!4v1738586344874!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe title="Dirección de Crossfit Arastur en mapa de Google" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.927459628159!2d-0.9904018237100229!3d41.63569938055576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd596919b60c9bdb%3A0x3f9bd97b33711d8!2sCrossFit%20Arastur!5e0!3m2!1ses!2ses!4v1738586344874!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="myModalLabel">¡Gracias!</h5>
+                                <h2 class="modal-title" id="myModalLabel">¡Gracias!</h2>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
