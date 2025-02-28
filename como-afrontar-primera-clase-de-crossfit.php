@@ -20,7 +20,7 @@ $postMetaData = ["date" => "2/15/2025", "author" => "Marta Puchan", "categories"
     "Experiencia en CrossFit",
     "Pedir cita CrossFit",
     "Motivación para entrenar"
-]];
+], "description" => "Descubre cómo afrontar tu primera clase de CrossFit en Zaragoza con energía y motivación. Consejos para principiantes, la importancia de los entrenadores y todo lo que necesitas saber para empezar. ¡Te esperamos en CrossFit Arastur!"];
 $title = "¿Cómo afrontar mi primera clase de crossfit? | Crossfit Arastur";
 require "_partials/header.php";
 ?>
