@@ -142,11 +142,6 @@ $noIndex = isset($noIndex) ? $noIndex : false;
     <?php if (isset($postMetaData["author"])): ?>
         <meta name="author" content="<?php echo $postMetaData["author"]; ?>">
     <?php endif; ?>
-    <?php if (isset($postMetaData["keywords"])): ?>
-        <meta name="keywords" content="<?php echo implode(", ", $postMetaData["keywords"]); ?>">
-    <?php endif; ?>
-
-
     <?php
     if (isset($postMetaData["keywords"])) {
         echo '<meta name="keywords" content="' . implode(', ', $postMetaData['keywords']) . '">';
@@ -154,16 +149,20 @@ $noIndex = isset($noIndex) ? $noIndex : false;
         echo '<meta name="keywords" content="readaptacion deportiva, entrenamientos personales, CrossFit, ejercicios funcionales, box, RX, escalado, salud, crossfit zaragoza, crossfit aragon, be cool crossfit zaragoza, becool crossfit zaragoza, box crossfit zaragoza, cross fit zaragoza, crossfit en zaragoza, crossfit eolo zaragoza, crossfit hiberus zaragoza, crossfit reebok zaragoza,crossfit rocalla zaragoza, crossfit zaragoza centro, crossfit zaragoza las fuentes, crossfit zaragoza precio, crossfit zgz, gimnasio crossfit zaragoza, hammerbox zaragoza, kronos crossfit zaragoza, reebok crossfit zaragoza, zaragoza crossfit" />';
     }
     ?>
+    <?php
+    if (isset($postMetaData["description"])) {
+        echo '<meta name="description" content="' .  $postMetaData['description'] . '">';
+    } else {
+        echo '<meta
+        name="description"
+        content="CossFit Arastur es el único box de Aragón que cuenta con un servicio de readaptación deportiva integrado en el centro." />';
+    }
+    ?>
     <link rel="preconnect" href="//clickiocmp.com">
     <link rel="dns-prefetch" href="//clickiocmp.com">
     <title><?php echo $title; ?></title>
     <link rel="icon" href="favicon.ico" type="image/png" />
-    <meta
-        name="description"
-        content="CossFit Arastur es el único box de Aragón que cuenta con un servicio de readaptación deportiva integrado en el centro." />
-    <!--     <meta
-        name="keywords"
-        content="readaptacion deportiva, entrenamientos personales, CrossFit, ejercicios funcionales, box, RX, escalado, salud, crossfit zaragoza, crossfit aragon, be cool crossfit zaragoza, becool crossfit zaragoza, box crossfit zaragoza, cross fit zaragoza, crossfit en zaragoza, crossfit eolo zaragoza, crossfit hiberus zaragoza, crossfit reebok zaragoza,crossfit rocalla zaragoza, crossfit zaragoza centro, crossfit zaragoza las fuentes, crossfit zaragoza precio, crossfit zgz, gimnasio crossfit zaragoza, hammerbox zaragoza, kronos crossfit zaragoza, reebok crossfit zaragoza, zaragoza crossfit" /> -->
+
 
     <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
