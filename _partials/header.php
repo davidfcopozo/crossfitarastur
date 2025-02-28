@@ -37,7 +37,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
             'analytics_storage': 'denied',
             'ad_storage': 'denied'
         });
-        gtag('config', 'G-ZEF11W329M', {
+        gtag('config', 'G-ZBQ25EFQXD', {
             'send_page_view': false
         });
 
@@ -48,7 +48,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
                 // Create and load the GA script
                 var gaScript = document.createElement('script');
                 gaScript.id = 'ga-script';
-                gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZEF11W329M';
+                gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZBQ25EFQXD';
                 gaScript.async = true;
                 document.head.appendChild(gaScript);
 
@@ -84,7 +84,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
                             // Send pageview if consent granted
                             if (analyticsGranted) {
                                 console.log('Sending pageview');
-                                gtag('config', 'G-ZEF11W329M', {
+                                gtag('config', 'G-ZBQ25EFQXD', {
                                     'send_page_view': true
                                 });
                             }
