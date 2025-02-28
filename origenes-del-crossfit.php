@@ -1,5 +1,26 @@
 <?php
-$postMetaData = ["date" => "2/15/2025", "author" => "Iván Santurio", "categories" => ["Crossfit", "Historia"]];
+$postMetaData = ["date" => "2/15/2025", "author" => "Iván Santurio", "categories" => ["Crossfit", "Historia"], "keywords" => [
+    "Orígenes del CrossFit",
+    "Historia del CrossFit",
+    "Greg Glassman",
+    "Entrenamiento funcional",
+    "CrossFit años 70",
+    "California EEUU",
+    "Primer centro de entrenamiento",
+    "CrossFit Inc",
+    "CrossFit Health",
+    "CrossFit Games",
+    "Boxes de CrossFit",
+    "Entrenadores de CrossFit",
+    "CrossFit en el mundo",
+    "Mejorar condición física",
+    "Calidad de vida",
+    "CrossFit para niños",
+    "Strongman CrossFit",
+    "Gimnasia en CrossFit",
+    "Departamento de policía Santa Cruz",
+    "Desarrollo del CrossFit"
+]];
 $title = "Orígenes del Crossfit | Crossfit Arastur";
 require "_partials/header.php";
 ?>

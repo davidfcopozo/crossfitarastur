@@ -1,5 +1,26 @@
 <?php
-$postMetaData = ["date" => "2/15/2025", "author" => "Iván Santurio", "categories" => ["Crossfit", "Nomenclaturas del Crossfit"]];
+$postMetaData = ["date" => "2/15/2025", "author" => "Iván Santurio", "categories" => ["Crossfit", "Nomenclaturas del Crossfit"], "keywords" => [
+    "WOD CrossFit",
+    "Box CrossFit",
+    "AMRAP CrossFit",
+    "Time cap CrossFit",
+    "For Time CrossFit",
+    "EMOM CrossFit",
+    "Nomenclatura CrossFit",
+    "Workout of the Day",
+    "Entrenamiento CrossFit",
+    "Centros de CrossFit",
+    "Formato de entrenamiento CrossFit",
+    "Repeticiones en CrossFit",
+    "Técnica en CrossFit",
+    "Intensidad en CrossFit",
+    "Calentamiento CrossFit",
+    "Estiramientos CrossFit",
+    "Fuerza y acondicionamiento",
+    "Ritmo en CrossFit",
+    "Medir rendimiento CrossFit",
+    "Programación de entrenamientos CrossFit"
+]];
 $title = "WOD, box, AMRAP, Time cap… ¿qué quieren decir estas palabras? | Crossfit Arastur";
 require "_partials/header.php";
 ?>
