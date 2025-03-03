@@ -20,8 +20,8 @@
         <div class="d-flex mx-auto my-5">
             <?php
             $text = "Ver todos los posts";
-            $link = "/blog";
-            require __DIR__ . "/../_partials/button.php"; ?>
+            $link = "blog.php";
+            require  __DIR__ . "/../_partials/button.php"; ?>
         </div>
     </div>
 </section>
