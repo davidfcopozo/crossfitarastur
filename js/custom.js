@@ -45,16 +45,35 @@ d.addEventListener("DOMContentLoaded", () => {
     );
   });
 
+  const navBarToggler = d.querySelector(".navbar-toggler.collapsed");
+
+  navBarToggler &&
+    navBarToggler.addEventListener("click", () => {
+      if (!navbar.classList.contains("past-main")) {
+        navbar.classList.add("past-main");
+      }
+    });
+
   /*************************** Active page ***************************/
 
   const pathName = window.location.pathname.split("/");
   let page = pathName[pathName.length - 1];
+  let directory = pathName[pathName.length - 2];
 
-  const link = d.querySelector('a[href="' + page + '"]');
+  page = page.replace(".php", "");
 
-  if (page !== "" && page !== "index.php" && link) {
-    link.classList.add("active-page");
-    link.ariaSelected = "true";
+  const isBlog = directory === "blog" || page === "blog";
+  const blogLink = d.querySelector('a[href="/blog"]');
+
+  if (isBlog && blogLink) {
+    blogLink.classList.add("active-page");
+    blogLink.ariaSelected = "true";
+  } else if (page !== "" && page !== "index") {
+    const link = d.querySelector(`a[href="/${page}.php"]`);
+    if (link) {
+      link.classList.add("active-page");
+      link.ariaSelected = "true";
+    }
   }
 
   /************************ Parallax scroll effect for hero section ************************/
@@ -521,7 +540,7 @@ function setActiveTab() {
 
 async function fetchSheetData() {
   try {
-    const response = await fetch("api.php");
+    const response = await fetch("/api.php");
     if (!response.ok) {
       throw new Error("Network response was not ok " + response.statusText);
     }
@@ -590,8 +609,9 @@ async function fetchSheetData() {
     console.error("Error fetching data:", error);
   }
 }
-
-fetchSheetData();
+if (page === "horarios-y-tarifas.php" || page === "horarios-y-tarifas") {
+  fetchSheetData();
+}
 
 d.addEventListener("DOMContentLoaded", () => {
   /************************************** SCROLL TO FORM **************************************/
