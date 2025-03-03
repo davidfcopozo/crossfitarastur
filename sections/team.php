@@ -1,5 +1,5 @@
 <section class="team3 section-padding30">
-    <div class="container">
+    <div class="container justify-content-center">
         <div class="row justify-content-center mb-4">
             <div class="section-tittle col-md-7 text-center">
                 <h2 class="mb-3">Profesionales experimentados</h2>
@@ -11,7 +11,7 @@
         <div class="row justify-content-center space-x-4 px-2 px-md-4">
             <!-- column  -->
 
-            <div class="team-member col-md-6 col-lg-4 mb-4 flex flex-column justify-content-between row me-4 pt-4">
+            <div class="team-member col-md-6 col-lg-4 mb-4 flex flex-column justify-content-between row me-lg-4 pt-4">
                 <!-- Row -->
                 <div>
                     <div class="col-md-12 d-flex">
