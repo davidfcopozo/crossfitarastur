@@ -1,5 +1,6 @@
 <?php
 $title = "Contacto | Crossfit Arastur";
+$canonicalURL = "https://powderblue-parrot-507586.hostingersite.com/contacto";
 require "_partials/header.php"; ?>
 <main class="services-page main app form" id="main">
     <?php

@@ -144,6 +144,9 @@ $noIndex = isset($noIndex) ? $noIndex : false;
     <?php if (isset($postMetaData["author"])): ?>
         <meta name="author" content="<?php echo $postMetaData["author"]; ?>">
     <?php endif; ?>
+    <?php if (isset($canonicalURL)): ?>
+        <link rel="canonical" href="<?php echo $canonicalURL; ?>" />
+    <?php endif; ?>
     <?php
     if (isset($postMetaData["keywords"])) {
         echo '<meta name="keywords" content="' . implode(', ', $postMetaData['keywords']) . '">';
