@@ -39,9 +39,10 @@ require __DIR__ . "/../_partials/header.php";
             <div class="post-meta">
                 <time datetime="<?php echo $postMetaData['date']; ?>">
                     <?php
-                    setlocale(LC_TIME, "es_ES.UTF-8", "es_ES", "Spanish_Spain");
-                    $date = strtotime($postMetaData['date']);
-                    echo strftime(" %d de %B de %Y", $date);
+                    $dateObj = new DateTime('@' . strtotime($postMetaData['date']));
+                    $dateObj->setTimezone(new DateTimeZone('Europe/Madrid'));
+                    $months = ['', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+                    echo ' ' . $dateObj->format('j') . ' de ' . $months[(int)$dateObj->format('n')] . ' de ' . $dateObj->format('Y');
                     ?>
                 </time>
                 <span class="author">Por <?php echo htmlspecialchars($postMetaData['author']); ?></span>
