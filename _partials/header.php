@@ -44,7 +44,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
         // Function to load Google Analytics
         function loadGoogleAnalytics() {
             if (!document.getElementById('ga-script')) {
-                console.log('Loading Google Analytics script');
+                /* console.log('Loading Google Analytics script'); */
                 // Create and load the GA script
                 var gaScript = document.createElement('script');
                 gaScript.id = 'ga-script';
@@ -54,7 +54,6 @@ $noIndex = isset($noIndex) ? $noIndex : false;
 
                 // Send initial pageview after script loads
                 gaScript.onload = function() {
-                    console.log('GA script loaded, updating consent and sending pageview');
                     updateConsentState();
                 };
             } else {
@@ -74,7 +73,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
                             let consentFlags = consentArray[14].split("").map(e => e - 0);
                             let analyticsGranted = consentFlags[1] === 1;
 
-                            console.log('Analytics consent:', analyticsGranted ? 'granted' : 'denied');
+                            /* console.log('Analytics consent:', analyticsGranted ? 'granted' : 'denied'); */
 
                             // Update consent state
                             gtag('consent', 'update', {
@@ -83,7 +82,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
 
                             // Send pageview if consent granted
                             if (analyticsGranted) {
-                                console.log('Sending pageview');
+                                /* console.log('Sending pageview'); */
                                 gtag('config', 'G-ZBQ25EFQXD', {
                                     'send_page_view': true
                                 });
@@ -114,7 +113,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
         // Watch for changes in localStorage for consent updates
         window.addEventListener('storage', function(e) {
             if (e.key === 'lxGconsent__v2') {
-                console.log('Consent changed, checking status');
+                /* console.log('Consent changed, checking status'); */
                 checkConsentStatus();
             }
         });
@@ -125,7 +124,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
         // Create a custom event for Clickio consent manager
         window.addEventListener('message', function(event) {
             if (event.data && event.data.type === 'consent_update') {
-                console.log('Consent update message received');
+                /*    console.log('Consent update message received'); */
                 checkConsentStatus();
             }
         });
@@ -135,7 +134,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
 
         // Add a global function that can be called from Clickio CMP
         window.updateAnalyticsConsent = function() {
-            console.log('Manual consent update requested');
+            /* console.log('Manual consent update requested'); */
             checkConsentStatus();
         };
     </script>
@@ -236,7 +235,7 @@ $noIndex = isset($noIndex) ? $noIndex : false;
 
     <script src="/js/bootstrap.min.js" defer></script>
     <!-- FONTS -->
-    <link rel="preload" href="/fonts/bebas-neue-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/bebas-neue-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/montserrat-v29-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     <script src="/js/custom.min.js" defer></script>
     <script
@@ -270,11 +269,11 @@ $noIndex = isset($noIndex) ? $noIndex : false;
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div
-                    class="collapse navbar-collapse justify-content-lg-end "
+                    class="collapse navbar-collapse justify-content-center justify-content-lg-end "
                     id="navbarCollapse">
-                    <ul class="navbar-nav text-white">
+                    <ul class="navbar-nav text-white text-center text-lg-start">
                         <li class="nav-item">
-                            <a class="nav-link " href="servicios.php" area-label="Servicios">Servicios</a>
+                            <a class="nav-link " href="/servicios.php" area-label="Servicios">Servicios</a>
                         </li>
                         <li class="nav-item">
                             <a
@@ -282,10 +281,10 @@ $noIndex = isset($noIndex) ? $noIndex : false;
                                 href="/blog" area-label="Blog">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="horarios-y-tarifas.php" area-label="Horarios & Tarifas">Horarios & Tarifas</a>
+                            <a class="nav-link" href="/horarios-y-tarifas.php" area-label="Horarios & Tarifas">Horarios & Tarifas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="contacto.php" area-label="Contacto">Contacto</a>
+                            <a class="nav-link " href="/contacto.php" area-label="Contacto">Contacto</a>
                         </li>
                     </ul>
                 </div>
